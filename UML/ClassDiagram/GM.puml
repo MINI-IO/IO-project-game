@@ -1,0 +1,114 @@
+@startuml
+
+skinparam shadowing false
+skinparam monochrome true
+skinparam classAttributeIconSize 0
+hide circle
+
+skinparam class {
+	BackgroundColor white
+}
+
+AbstractField <|-- GoalField
+AbstractField <|-- NonGoalField
+
+class AbstractField
+{
+- x: Int {readOnly}
+- y: Int {readOnly}
+- WhosHere: Player
+- pieces: AbstractPiece {seq} monoid in the category of endofunctors
++ Leave(Player)
++ PickUp(Player)
++ Put(Piece): Boolean
++ MoveHere(Player p): Boolean
++ ContainsPieces(): Boolean
++ GetPosition(): Int[2]
+}
+
+class GoalField
+{
+}
+
+class Configuration
+{
++ movePenalty: TimeSpan {readOnly}
++ askPenalty: TimeSpan {readOnly}
++ discoveryPenalty: TimeSpan {readOnly}
++ putPenalty: TimeSpan {readOnly}
++ checkPenalty: TimeSpan {readOnly}
++ responsePenalty: TimeSpan {readOnly}
++ x: Int {readOnly}
++ y: Int {readOnly}
+}
+
+GM *-left-"1" Configuration
+
+class GM
+{
++ AcceptMessage(Message) 
+~ Discover(Field)
+- players: Dictionary<int,Player> {readOnly}
+- map: Field[][] {readOnly}
+- LegalKnowleadgeReplies: Int {unique}
+- conf: Configuration
+- GeneratePiece() 
+- ForwardKnowleadgeQuestion(Messsage)
+- ForwardKnowleadgeReply(Message)
+}
+
+
+enum Team <<enumeration>>
+{
+Red
+Blue
+}
+GM *--"2..*" Player
+Player o--"0..1" AbstractField
+Player *-right-"1" MessageSenderService
+AbstractField o-- AbstractPiece
+class Player
+{
++ tryLock(TimeSpan): Boolean
++ Move(Field f)
++ DestroyHolding()
++ CheckHolding()
++ Discover(GM)
++ Put()
+~ SetHolding(Piece)
+~ GetPosition(): Int[2]
+- id: Int
+- messageCorellationId: Int
+- team: Team
+- isLeader: Boolean
+- holding: Piece
+- position: AbstractField
+- LockedTill: Time
+- messageService: MessageSenderService
+}
+
+interface MessageSenderService <<interface>>
+{
++ MoveResponse()
++ DiscoveryResponse()
++ PutResponse()
++ CheckPieceResponse()
++ InformationResponse()
++ AskResponse()
++ LockedError()
+}
+
+GM *--"4..*" AbstractField
+
+AbstractPiece <|-- ShamPiece
+AbstractPiece <|-- NormalPiece
+
+Player --"0..1" AbstractPiece
+
+class AbstractPiece
+{
++ CheckForSham(): Boolean
++ Put(AbstractField): Boolean
+}
+
+@enduml
