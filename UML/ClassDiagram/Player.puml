@@ -1,0 +1,64 @@
+@startuml
+skinparam shadowing false
+skinparam monochrome true
+skinparam classAttributeIconSize 0
+hide circles
+
+skinparam class {
+BackgroundColor white
+}
+
+IStrategy <|.. "0..*" Strategy
+Player *-- Field
+Player -- "1" IStrategy
+
+class Player {
+- id: int
++ team: Team
++ isLeader: bool
++ havePiece: bool
++ board Field[,]
++ position: (int, int)
++ waitingPlayers: List<(int, bool)>
+- strategy: IStrategy
++ teamMates: int[]
+
++ Player()
++ Move()
++ PickUp()
++ Put()
++ BegForInfo()
++ GiveInfo()
++ RequestsResponse()
++ CheckPiece()
++ GetInfoFromGM()
++ MakeDecisionFromStrategy()
+- Communicate()
+}
+
+class Field{
++ goalInfo: GoalInfo
++ playerInfo: bool
++ distToPiece: int
+}
+
+interface IStrategy <<interface>> {
++ MakeDecision()
+}
+
+class Strategy {
++ MakeDecision()
+}
+
+enum Team <<enumeration>> {
+Red
+Blue
+}
+
+enum GoalInfo <<enumeration>> {
+IDK
+GoalInfoDiscovered
+DiscoveredNotGoal
+DiscoveredGoal
+}
+@enduml

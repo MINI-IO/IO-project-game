@@ -1,0 +1,27 @@
+@startuml
+skinparam shadowing false
+skinparam monochrome true
+skinparam classAttributeIconSize 0
+hide circles
+
+skinparam class {
+BackgroundColor white
+}
+
+class Communicator {
+- gmSocket: Socket
+- agentSocket: Socket
+
++ SendMessageToAgent()
++ SendMessageToGM()
+}
+
+class AgentMessage {
++ playload: string
+}
+
+class GMMessage {
++ id: int
++ playload: string
+}
+@enduml
