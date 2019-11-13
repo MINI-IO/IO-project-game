@@ -17,7 +17,7 @@ class AbstractField
 - x: Int {readOnly}
 - y: Int {readOnly}
 - WhosHere: Player
-- pieces: AbstractPiece {seq} monoid in the category of endofunctors
+- pieces: AbstractPiece {seq}
 + Leave(Player)
 + PickUp(Player)
 + Put(Piece): Boolean
@@ -66,11 +66,12 @@ Blue
 GM *--"2..*" Player
 Player o--"0..1" AbstractField
 Player *-right-"1" MessageSenderService
-AbstractField o-- AbstractPiece
+Player <.down. Team
+AbstractField o--"0..*" AbstractPiece
 class Player
 {
 + tryLock(TimeSpan): Boolean
-+ Move(Field f)
++ Move(Field)
 + DestroyHolding()
 + CheckHolding()
 + Discover(GM)
