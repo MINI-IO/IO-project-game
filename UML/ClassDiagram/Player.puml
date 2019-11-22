@@ -9,12 +9,15 @@ BackgroundColor white
 }
 
 IStrategy <|.. Strategy
-Player *-- Field
-Player -- "1" IStrategy
+Player *-- "4..*" Field
+Player *-- "1" IStrategy
+Player *-- "1" Team
+Player *-- "1" GoalInfo
 
 class Player {
 - id: int
-+ delay: int
++ delayTime: int
++ penaltyTime: int
 + team: Team
 + isLeader: bool
 + havePiece: bool
@@ -25,6 +28,9 @@ class Player {
 + teamMates: int[]
 
 + Player()
++ JoinTheGame()
++ Start()
++ Stop()
 + Move()
 + PickUp()
 + Put()
@@ -35,6 +41,7 @@ class Player {
 + GetInfoFromGM()
 + MakeDecisionFromStrategy()
 - Communicate()
+- Penalty()
 }
 
 class Field{
