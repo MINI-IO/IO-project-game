@@ -8,18 +8,19 @@ skinparam class {
 BackgroundColor white
 }
 
-IStrategy <|.. "0..*" Strategy
+IStrategy <|.. Strategy
 Player *-- Field
 Player -- "1" IStrategy
 
 class Player {
 - id: int
++ delay: int
 + team: Team
 + isLeader: bool
 + havePiece: bool
 + board Field[,]
-+ position: (int, int)
-+ waitingPlayers: List<(int, bool)>
++ position: Tuple<int, int>
++ waitingPlayers: List<Tuple<int, bool>>
 - strategy: IStrategy
 + teamMates: int[]
 
