@@ -1,16 +1,20 @@
 \documentclass[../Dokumentacja.tex]{subfiles}
 \begin{document}
 \subsection{Game Master}
+Moduł Game Master przeprowadza całą rozgrywkę w The Project Game. Game Master przechowuje aktualny stan gry, 
+zas każda akcja każdego Agenta musi najpierw zostać odnotowana i zwalidowana przez Game Mastera.
+Cała komunikacja między Agentami i Game Masterem posredniczy poprzez moduł Serwera.
+Game Master także odpowiada za dostarczenie interfejsu graficznego do prezentacji stanu gry i wyników.
 \begin{itemize}
 	\item Rozpoczęcie rozgrywki
 	\begin{itemize}
-		\item Pobranie parametrów rozgrywki z konfiguracji
-		\item Wygenerowanie nowej planszy
-		\item Wysłanie informacji o rozpoczęciu do wszystkich agentów
+		\item Pobranie parametrów rozgrywki z domyslnej konfiguracji, bądź dostarczonej przez użytkownika
+		\item Wygenerowanie nowej planszy na podstawie konfiguracji
+		\item Wysłanie informacji o rozpoczęciu do wszystkich agentów, wraz z początkowymi danymi na temat planszy (wielkosć planszy, wielkosć stref punktowych, czasy oczekiwania po każdej akcji Agenta, pozycja startowa Agenta, oraz identyfikatory pozostałych Agentów)
 	\end{itemize}
 	\item Obsługa prosby o dołączenie
 	\begin{itemize}
-		\item Game Master może odrzucić lub zaakceptować prosbę, w zależnosci od limitu agentow w drużynie
+		\item Game Master może odrzucić lub zaakceptować prosbę, w zależnosci od limitu Agentów w drużynie
 	\end{itemize}
 	\item Obsługa zapytań Agentów
 	\begin{itemize}
@@ -20,11 +24,11 @@
 	\end{itemize}
 	\item Prezentowanie stanu planszy wraz z wynikiem
 	\begin{itemize}
-		\item Game Master na swoim interfejsie użytkownika prezentuje aktualny stan planszy, wynik oraz meczowe statystyki
+		\item Game Master w graficznym interfejsie użytkownika prezentuje aktualny stan planszy, wyniki drużyn oraz meczowe statystyki
 	\end{itemize}
 	\item Zakończenie rozgrywki
 	\begin{itemize}
-		\item Na żądanie użytkownika lub po wygranej którejkolwiek z drużyn Game Master wysyła informacje o końcu gry do Agentów po czym sam się wyłącza
+		\item Po wygranej którejkolwiek z drużyn Game Master wysyła informacje o końcu gry do Agentów i prezentuje statystyki w interfejsie graficznym
 	\end{itemize}
 \end{itemize}
 
