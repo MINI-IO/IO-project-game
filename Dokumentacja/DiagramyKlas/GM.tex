@@ -1,0 +1,178 @@
+\documentclass[../Dokumentacja.tex]{subfiles}
+\begin{document}
+\subsection{Moduł GM}
+\subsubsection{Player}
+\paragraph{Zmienne}
+% \begin{center}
+%     \begin{tabular}{ | l | l | l | p{5cm} |}
+%     \hline
+%     Dostęp & Typ & Nazwa & Opis \\ \hline
+%     private & Int & id & Identyfikator gracza \\ \hline
+%     private & Int & messageCorellationId & ??? \\ \hline
+%     private & Team & team & Drużyna,w której jest gracz \\ \hline
+%     private & Boolean & isLeader & Zmienna informująca czy gracz jest liderem zespołu \\ \hline
+%     private & Piece & holding & Zmienna informująca czy niesie fragment \\ \hline
+%     private & AbstractField & position & Pozycja gracza na planszy \\ \hline
+%     private & Time & LockedTill & Czas do kiedy gracz jest zablokowany \\ \hline
+%     private & MessageSenderService & messageService & Obiekt interface'u odpowiedzialnego za komunikację \\ \hline
+%     \end{tabular}
+% \end{center}
+\begin{itemize}
+    \method[private Int]{id}{Identyfikator gracza}
+    \method[private Int]{messageCorellationId}{???}
+    \method[private Team]{team}{Drużyna,w której jest gracz}
+    \method[private Boolean]{isLeader}{Zmienna informująca czy gracz jest liderem zespołu}
+    \method[private Piece]{holding}{Zmienna informująca czy niesie fragment}
+    \method[private AbstractField]{position}{Pozycja gracza na planszy}
+    \method[private Time]{LockedTill}{Czas do kiedy gracz jest zablokowany}
+    \method[private MessageSenderService]{messageService}{Obiekt interface'u odpowiedzialnego za komunikację}
+\end{itemize}
+
+\paragraph{Metody}
+\begin{itemize}
+    \method[public bool]{tryLock(TimeSpan)}{???}
+    \method[public void]{Move(Field)}{Metoda poruszająca gracza na wskazane pole. Korzysta z metody obiektu postion. Wysyła agentowi informację przez MessageSenderService.}
+    \method[public void]{DestroyHolding()}{Metoda niszcząca trzymany fragment (fikcyjny?).}
+    \method[public void]{CheckHolding()}{Metoda sprawdzająca czy trzymany fragment jest fragmentem fikcyjnym. Korzysta z metody obiektu holding. Wysyła agentowi informację przez MessageSenderService.}
+    \method[public void]{Discover(GM)}{Metoda wykonująca akcję odkrycia. Wykorzystuje funkcję klasy GM. Wysyła agentowi informację przez MessageSenderService.}
+    \method[public void]{Put()}{Metoda odkładająca fragment w polu, w którym się znajdujemy. Korzysta z metody obiektu postion. Wysyła agentowi informację przez MessageSenderService.}
+    \method{SetHolding()}{Metoda przypisuje graczowi fragment.}
+    \method[internal int[2]]{GetPosition()}{Metoda pobiera współrzędne gracza.}
+\end{itemize}
+
+
+\subsubsection{Configuration}
+\paragraph{Zmienne}
+% \begin{center}
+%     \begin{tabular}{ | l | l | l | p{5cm} |}
+%     \hline
+%     Dostęp & Typ & Nazwa & Opis \\ \hline
+%     public readonly & TimeSpan & movePenalty & Czas do odczekania po wykonanym ruchu. \\ \hline
+%     public readonly & TimeSpan & askPenalty & Czas do odczekania po odpytaniu innego gracza. \\ \hline
+%     public readonly & TimeSpan & discoveryPenalty & Czas do odczekania po wykonanym akcji odkrycia. \\ \hline
+%     public readonly & TimeSpan & putPenalty & Czas do odczekania po odłożeniu fragmentu na planszę. \\ \hline
+%     public readonly & TimeSpan & checkPenalty & Czas do odczekania po sprawdzeniu czy fragment jest fikcyjny. \\ \hline
+%     public readonly & TimeSpan & responsePenalty & Czas do odczekania po odpowiedzeniu innemu graczowi. \\ \hline
+%     public readonly & Int & x & Szerokość planszy. \\ \hline
+%     public readonly & Int & y & Wysokość planszy. \\ \hline
+%     \end{tabular}
+% \end{center}
+\begin{itemize}
+    \method[public readonly TimeSpan]{movePenalty}{Czas do odczekania po wykonanym ruchu.}
+    \method[public readonly TimeSpan]{askPenalty}{Czas do odczekania po odpytaniu innego gracza.}
+    \method[public readonly TimeSpan]{discoveryPenalty}{Czas do odczekania po wykonanym akcji odkrycia.}
+    \method[public readonly TimeSpan]{putPenalty}{Czas do odczekania po odłożeniu fragmentu na planszę.}
+    \method[public readonly TimeSpan]{checkPenalty}{Czas do odczekania po sprawdzeniu czy fragment jest fikcyjny.}
+    \method[public readonly TimeSpan]{responsePenalty}{Czas do odczekania po odpowiedzeniu innemu graczowi.}
+    \method[public readonly Int]{x}{Szerokość planszy.}
+    \method[public readonly Int]{y}{Wysokość planszy.}
+\end{itemize}
+
+\subsubsection{AbstractField}
+\paragraph{Zmienne}
+% \begin{center}
+%     \begin{tabular}{ | l | l | l | p{5cm} |}
+%     \hline
+%     Dostęp & Typ & Nazwa & Opis \\ \hline
+%     private readonly & Int & x & Współrzędna x pola na planszy. \\ \hline
+%     private readonly & Int & y & Współrzędna y pola na planszy. \\ \hline
+%     private & Player & WhosHere & Referencja na obiekt gracza, który znajduje się na polu. \\ \hline
+%     private & AbstractPiece & pieces & ??? lista ??? Referencja na fragment położony na tym polu. \\ \hline
+%     \end{tabular}
+% \end{center}
+\begin{itemize}
+    \method[private readonly Int]{x}{Współrzędna x pola na planszy.}
+    \method[private readonly Int]{y}{Współrzędna y pola na planszy.}
+    \method[private Player]{WhosHere}{Referencja na obiekt gracza, który znajduje się na polu.}
+    \method[private AbstractPiece]{pieces}{??? lista ??? Referencja na fragment położony na tym polu.}
+\end{itemize}
+
+\paragraph{Metody}
+\begin{itemize}
+    \method[public void]{Leave(Player)}{Metoda wywoływana gdy gracz opuszcza pole. Usuwa referencję na gracza w obiekcie.}
+    \method[public void]{PickUp(Player)}{Metoda, która podnosi fragment z planszy i przypisuje go do gracza.}
+    \method[public bool]{Put(Piece)}{Metoda abstrakcyjna. Wykorzystuje Put(AbstractField) z AbstractPiece.}
+    \method[public bool]{MoveHere(Player)}{Metoda przesuwa gracza na pole.}
+    \method[public bool]{ContainsPieces()}{Metoda zwraca informację czy pole zawiera fragment.}
+    \method[public int[2]]{GetPosition()}{Metoda zwraca współrzędne pola.}
+\end{itemize}
+
+\subsubsection{NonGoalField : AbstractField}
+\paragraph{Metody}
+\begin{itemize}
+    \method[public bool]{Put(Piece)}{Metoda zwraca false.}
+\end{itemize}
+
+\subsubsection{GoalField : AbstractField}
+\paragraph{Metody}
+\begin{itemize}
+    \method[public bool]{Put(Piece)}{Metoda zwraca true i odkłada fragment na planszę. Wykorzystuje Put(AbstractField) z AbstractPiece.}
+\end{itemize}
+
+\subsubsection{AbstractPiece}
+\paragraph{Metody}
+\begin{itemize}
+    \method[public bool]{CheckForSham()}{Metoda abstrakcyjna sprawdzająca czy fragment jest fragmentem fikcyjnym.}
+    \method[public bool]{Put(AbstractField)}{Metoda abstrakcyjna odkładająca fragment na pole.}
+\end{itemize}
+
+\subsubsection{ShamPiece : AbstractPiece}
+\paragraph{Metody}
+\begin{itemize}
+    \method[public bool]{CheckForSham()}{Metoda zwraca true.}
+    \method[public bool]{Put(AbstractField)}{Metoda ???}
+\end{itemize}
+
+\subsubsection{NormalPiece : AbstractPiece}
+\paragraph{Metody}
+\begin{itemize}
+    \method[public bool]{CheckForSham()}{Metoda zwraca false.}
+    \method[public bool]{Put(AbstractField)}{Metoda odkłada fragment na planszę.)
+\end{itemize}
+
+\subsubsection{Interface Message SenderService}
+\paragraph{Metody}
+\begin{itemize}
+    \method[public void]{MoveResponse()}{???}
+    \method[public void]{DiscoveryResponse()}{???}
+    \method[public void]{PutResponse()}{???}
+    \method[public void]{CheckPieceResponse()}{???}
+    \method[public void]{InformationResponse()}{???}
+    \method[public void]{AskResponse()}{???}
+    \method[public void]{LockedError()}{???}
+\end{itemize}
+
+\subsubsection{AbstractField}
+\paragraph{Zmienne}
+% \begin{center}
+%     \begin{tabular}{ | l | l | l | p{5cm} |}
+%     \hline
+%     Dostęp & Typ & Nazwa & Opis \\ \hline
+%     private readonly & Dictionary<int,Player> & players & ??? CO TU JEST KLUCZEM \\ \hline
+%     private readonly & Field[][] & map & Faktyczny stan planszy. \\ \hline
+%     private & int & LegalKnowleadgeReplies & ??? \\ \hline
+%     private & Configuration & conf & Obiekt parametrów rozgrywki. \\ \hline
+%     \end{tabular}
+% \end{center}
+\begin{itemize}
+    \method[private readonly Dictionary<int,Player>]{players}{??? CO TU JEST KLUCZEM}
+    \method[private readonly Field[][]]{map}{Faktyczny stan planszy.}
+    \method[private int]{LegalKnowleadgeReplies}{???}
+    \method[private Configuration]{conf}{Obiekt parametrów rozgrywki.}
+\end{itemize}
+
+\paragraph{Metody}
+\begin{itemize}
+    \method[public void]{AcceptMessage(Message)}{???}
+    \method{Discover(Field)}{???}
+    \method[private void]{GeneratePiece()}{Metoda generuje i rozmieszcza fragmenty na planszy.}
+    \method[private void]{ForwardKnowleadgeQuestion()}{Metoda przekazuje prośbę o informację do właściwego gracza.}
+    \method[private void]{ForwardKnowleadgeReply()}{Metoda przekazuje odpowiedź na zapytanie do właściwego gracza.}
+\end{itemize}
+
+\subsubsection{Enum Team}
+\begin{itemize}
+    \item \textbf{Red} - informacja, że gracz jest w drużynie czerwonej,
+    \item \textbf{Blue} - informacja, że gracz jest w drużynie niebieskiej.
+\end{itemize}
+\end{document}
