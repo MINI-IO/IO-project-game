@@ -38,7 +38,7 @@ class Player {
 + GiveInfo()
 + RequestsResponse()
 + CheckPiece()
-+ GetInfoFromGM()
++ AcceptMessage()
 + MakeDecisionFromStrategy()
 - Communicate()
 - Penalty()
