@@ -11,6 +11,7 @@ BackgroundColor white
 IStrategy <|.. Strategy
 Player *-- "4..*" Field
 Player *-- "1" IStrategy
+Player *-- "1" ISender
 Player *-- "1" Team
 Player *-- "1" GoalInfo
 
@@ -53,6 +54,11 @@ class Field{
 interface IStrategy <<interface>> {
 + MakeDecision()
 }
+
+interface IStrategy <<interface>> {
++ SendMessage()
+}
+
 
 class Strategy {
 + MakeDecision()
