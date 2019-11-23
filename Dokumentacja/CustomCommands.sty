@@ -1,5 +1,30 @@
 % used to define method of a class
+\usepackage{afterpage}
+
 \newcommand{\method}[3][internal void]{
     \item #1 \textbf{#2}\\
     #3
 }
+
+\newcommand{\includeDiagramFullPage}[3][width=\textwidth]{
+\afterpage{%
+    \thispagestyle{empty}
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[#1]{#2}
+            \caption{#3}
+        \end{center}
+    \end{figure}
+}
+\newpage
+}
+
+\newcommand{\includeDiagram}[3][width=\textwidth]{
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[#1]{#2}
+            \caption{#3}
+        \end{center}
+    \end{figure}
+}
+

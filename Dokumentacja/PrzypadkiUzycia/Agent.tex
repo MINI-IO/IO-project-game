@@ -3,7 +3,7 @@
 \subsection{Agent PU}
 Agent jest graczem w \textbf{The Project Game}. Należy do jednej z dwóch drużyn. Integruje się z modułem \textbf{Game Master} poprzez moduł \textbf{Serwera Komunikacyjnego}. Przed wykonaniem jakichkolwiek akcji musi dołączyć do rozgrywki wysyłając odpowiednie zapytanie do GM. Posiada ograniczoną wiedzę na temat aktualnego stanu planszy i może ją zdobywać poprzez wykonywanie akcji oraz przez wymianę informacji z innymi graczami, zatem jego wiedza może być nieprawdziwa. Z tego powodu, aby wykonać jakąkolwiek akcję, agent musi uprzednio odpytać o nią GM, który posiada pełną wiedzę na temat aktualnego stanu planszy i może sprawdzić poprawność i wynik akcji. Celem Agenta jest wygrana drużyny do której należy, poprzez realizację obranej strategii.
 
-\includegraphics[width=\textwidth]{resources/Agent-Agent.pdf}
+\includeDiagramFullPage[width=\textwidth]{resources/Agent-Agent.pdf}{Diagram przypadków użycia modułu Agent i aktora Agent}
 
 \begin{itemize}
     \item Dołączenie do rozgrywki
