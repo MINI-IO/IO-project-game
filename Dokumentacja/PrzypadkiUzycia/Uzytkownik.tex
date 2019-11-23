@@ -1,0 +1,62 @@
+\documentclass[../Dokumentacja.tex]{subfiles}
+\begin{document}
+\subsection{Użytkownik}
+Użytkownik jest jest osobą używającą The Project Game.  Inicjuje wszystkie moduły występujące w projekcie. Posiada wymienione poniżej możliwości ingerencji w działanie poszczególnych modułów.
+\subsubsection{Moduł serwera}
+\begin{itemize}
+    \item Włączanie serwera
+    \begin{itemize}
+    	\item Ustawianie portów do połączeń z GM oraz agentami
+    	\item Ustawianie limitu ilości połączeń
+    \end{itemize}
+    \item Wyłączanie serwera
+\end{itemize}
+
+\subsubsection{Moduł agenta}
+\begin{itemize}
+	\item Inicjowanie agenta
+	\begin{itemize}
+		\item Tworzenie i łączenie agenta z serwerem posługując się portami ustawionymi w module serwer
+		\item Wprowadzanie parametrów połączenia z serwerem: rodzaj połączenia, numer portu, zgodnych portami ustawionymi w module serwer
+		\item Wprowadzanie do której drużyny należy agent (Red, Blue)
+		\item Wybranie strategii używanej podczas gry przez agenta spośród zaimplementowanych w module agenta. Od wybranej strategii zależy sposób podejmowania przez agenta takich decyzji jak: przesunięcie się na planszy, opuszczenie fragmentu, czy odpowiedź innemu agentowi na zapytanie
+	\end{itemize}
+	\item Wyłączanie agenta
+	\begin{itemize}
+		\item Wysłanie informacji o wyłączeniu agenta do serwera
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Moduł GM}
+\begin{itemize}
+	\item Inicjowanie GM
+	\begin{itemize}
+		\item Wprowadzanie parametrów połączeń: rodzaj połączenia, numer portu, zgodnych portami ustawionymi w module serwer
+	\end{itemize}
+	\item Konfigurowanie parametrów rozgrywki
+	\begin{itemize}
+		\item Ilość celów w polu bramkowym
+		\item Wymiary pola bramkowego
+		\item Opóźnienie w wykonywaniu ruchów przez agenta
+		\item Wymiary planszy
+		\item Maksymalna ilość agentów
+		\item Prawdopodobieństwo, że pojawiający się fragment jest fragmentem fikcyjnym
+		\item Częstotliwość generowania nowego fragmentu na planszy
+	\end{itemize}
+	\item Rozpoczynanie rozgrywki
+	\begin{itemize}
+		\item Wysłanie informacji o rozpoczęciu do serwera
+		\item Utworzenie planszy i rozgrywki na podstawie wcześniej wprowadzonych parametrów, lub w przypadku niewprowadzenia parametrów, na podstawie parametrów domyślnych
+	\end{itemize}
+	\item Wyświetlanie planszy
+	\begin{itemize}
+		\item Pobieranie stanu planszy
+		\item Pobieranie statystyk rozgrywki
+	\end{itemize}
+	\item Zakończenie rozgrywki
+	\begin{itemize}
+		\item Wysłanie informacji o zakończeniu do serwera
+		\item Wyświetlanie statystyk rozgrywki
+	\end{itemize}
+\end{itemize}
+\end{document}
