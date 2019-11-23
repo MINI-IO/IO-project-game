@@ -34,7 +34,7 @@
     \method{GiveInfo()}{Metoda udzielająca informacji o rozgrywce wskazanemu graczowi.}
     \method{RequestResponse()}{Metoda wywoływana na przyjście wiadomości o prośbie o wymianę informacji. Zapamiętuje parametry gracza który poprosił informację do listy \textit{waitingPlayers}}
     \method{CheckPiece()}{Metoda sprawdzająca czy fragment to fragment fikcyjny. Wysyła zapytanie do GM i w zależności od odpowiedzi aktualizuje stan wiedzy agenta.}
-    \method{AcceptMessage()}{Metoda pobierająca informacje od communication serwera.}
+    \method[public void]{AcceptMessage()}{Metoda pobierająca informacje od communication serwera.}
     \method{MakeDecisionFromStrategy()}{Metoda, która wywołuje metodę z obiektu strategy. Wywoływana jest okresowo i to ona decuduje o akcjach wykonywanych przez agenta. Używa IStrategy}
     \method[private void]{Communicate()}{Metoda wysyłająca wiadomości do serwera komunikacyjnego. Używana przez metody wykonujące akcje do komunikacj z GM poprzez wysłanie wiadomości do Serwera Komunikacyjnego}
     \method[private void]{Penalty()}{Metoda czekająca przez okres kary. Po odczekaniu kary wywołuje generowanie kolejnej akcji.}
