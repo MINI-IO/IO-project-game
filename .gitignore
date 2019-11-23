@@ -1,3 +1,7 @@
+## Wyłącz wszystkie pdf z wyjątkiem tych w folderach resources
+*.pdf
+!**/resources/*.pdf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

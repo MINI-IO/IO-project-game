@@ -1,0 +1,50 @@
+\documentclass[Dokumentacja.tex]{subfiles}
+
+\begin{document}
+\section{Reguły}
+\subsection{Założenia ogólne}
+\begin{itemize}
+    \item Powierzchnia pól bramkowych jest równa dla obu drużyn
+    \item Pole bramkowe zawsze ma szerokość taką jak szerokość pola planszy
+    \item Pola bramkowe stanowi $n$ pierwszych i $n$ ostatnich wierszy planszy, $n > 0$
+    \item Pola bramkowe są spójne
+    \item Powierzchnia pola zadań oraz powierzchnia obu pól bramkowych są niezerowe
+    \item Pola bramkowe (ułożenie celów) obu drużyn są symetryczne względem środka planszy
+    \item Odległości liczone są w metryce Manhattan
+    \item Każda akcja powoduje założenie na agenta blokady na czas zależny od akcji i określony przed rozgrywką podczas której nie może wykonywać akcji
+    \item W każdej drużynie jest jeden lider
+\end{itemize}
+
+\subsection{Poruszanie}
+\begin{itemize}
+    \item Agent może poruszać się w 4 kierunkach: zachód, północ, wschód, południe, to jest; może przemieścić się na pole które jest przyległe do pola na którym się znajduje
+    \item Agent może poruszyć się na dowolne pole planszy
+    \item Próba ruchu poza planszę skutkuje brakiem ruchu
+    \item Próba poruszenia się na pole zajęte przez innego agenta skutkuje brakiem ruchu
+    \item Próba poruszenia się dwóch różnych agentów na te samo pole skutkuje poruszeniem jednego z nich, wybór agenta do poruszenia jest dowolny
+\end{itemize}
+\subsection{Fragmenty}
+\begin{itemize}
+    \item Na Każdym polu planszy, które nie jest polem bramkowym może znajdować się dowolna ilość fragmentów
+    \item Agent może trzymać maksymalnie jeden fragment
+    \item W każdym momencie w grze może znajdować się maksymalnie liczba fragmentów, która ustalana jest przed rozpoczęciem rozgrywki w konfiguracji
+    \item Fragmenty generowane są przez Game Mastera co określony interwał i odkładane na losowe pole planszy
+    \item Odłożenie wygenerowanego przez Game Mastera fragmentu na pole na którym znajduje się Agent skutkuje natychmiastowym podniesieniem fragmentu przez tego Agenta, jeśli nie trzyma on już innego fragmentu, w przeciwnym przypadku fragment odkładany jest na pole
+    \item Odłożenie fragmentu niefikcyjnego na polu bramkowym które jest celem skutkuje przyznaniem punktu drużynie do której należy dane pole bramkowe. Może nastąpić sytuacja, gdy Agent zdobywa punkt dla przeciwnej drużyny
+    \item Odłożenie fragmentu fikcyjnego na polu bramkowym zwraca informację agentowi, że dany fragment był fikcyjny oraz nie przyznaje punktów, nawet jeśli dane pole było celem
+    \item Cel na który został odłożony fragment niefikcyjny przestaje być celem
+    \item Odłożenie fragmentu na polu bramkowym skutkuje wyłączeniem tego fragmentu z gry
+    \item Odłożenie fragmentu na polu niebędącym polem bramkowym jest niedozwolone
+    \item Fragment trzymany przez gracza w każdym momencie może być przetestowany na bycie fikcyjnym
+    \item Fragment trzymany przez gracza w każdym momencie może być zniszczony
+\end{itemize}
+\subsection{Wymiana informacji}
+\begin{itemize}
+    \item W każdym momencie gry agent może zarządzać wymiany informacji z innym agentem
+    \item Odpowiedź na zapytanie agenta niebędącego liderem nie jest obligatoryjna
+    \item Odpowiedź na zapytanie agenta będącego liderem jest obligatoryjna i skutkuje zablokowaniem akcji pytanego agenta do udzielenia przez niego odpowiedzi
+    \item Odpowiedź na zapytanie może zostać udzielona w dowolnym czasie od zapytania o wymianę informacji, ale nie może zostać wysłana jeśli takie zapytanie nie miało wcześniej miejsca
+    \item Udzielane informacje nie muszą być prawdziwe
+\end{itemize}
+
+\end{document}

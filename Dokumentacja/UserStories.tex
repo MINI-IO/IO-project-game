@@ -1,0 +1,67 @@
+\documentclass[Dokumentacja.tex]{subfiles}
+
+\begin{document}
+
+\section{User stories}
+\subsection{Użytkownik}
+\subsubsection{W module serwera}
+\begin{itemize}
+    \item Chce ustawić parametry serwera ?` port jeśli TCP ?
+\end{itemize}
+
+\subsubsection{W module GM}
+\begin{itemize}
+    \item Chce skonfigurować połączenie z modułem serwera
+    \item Chce skonfigurować parametry gry
+    \begin{itemize}
+        \item wielkość planszy
+        \item wielkość pola bramkowego
+        \item ilość celów ?` i jaki kształt stanowią ?
+        \item opóźnienia między poszczególnymi czynnościami agentów
+        \item ilość agentów
+        \item prawdopodobieństwo wygenerowanie fragmentu fikcyjnego
+        \item częstotliwość generowania nowych celów oraz maksymalna ilość celów na planszy (wliczając obecnie podniesione fragmenty)
+    \end{itemize}
+    \item Chce wyświetlić planszę
+    \item Chce rozpocząć rozgrywkę
+    \item Chce zakończyć rozgrywkę
+\end{itemize}
+
+
+\subsubsection{W module agenta}
+\begin{itemize}
+    \item Chce skonfigurować połączenie z modułem serwera
+    \item Chce ustawić strategię
+    \item Chce ustawić drużynę do której należy
+\end{itemize}
+
+
+\subsection{Agent}
+\begin{itemize}
+    \item Chce dołączyć do rozgrywki/drużyny
+    \item Chce wybrać kolejną akcję na podstawie obranej strategii
+    \item Chce odpytać o poprawność wykonania i wykonać akcję:
+    \begin{itemize}
+        \item ruch
+        \item akcję odkrycia
+        \item odłożenie fragmentu
+        \item sprawdzenie czy fragment jest fikcyjny
+        \item zapytanie o wiedzę innego agenta
+    \end{itemize}
+    \item Chce odbierać wiadomości i poprawnie reagować na nie
+    \begin{itemize}
+        \item Walidacja akcji; zmieniając stan lokalnej planszy
+        \item Zakończenie rozgrywki; kończąc pracę
+        \item Zapytanie o wiedzę; odsyłając posiadane informacje
+    \end{itemize}
+\end{itemize}
+
+\subsection{GM}
+\begin{itemize}
+    \item Chce walidować poprawność otrzymanego zapytania
+    \item Chce aktualizować stan planszy w przypadku zapytań modyfikujących jej
+    \item Chce odpowiadać na zapytania
+    \item Chce rozesłać informację o zakończeniu rozgrywki
+    \item Chce obliczyć podsumowanie rozgrywki
+\end{itemize}
+\end{document}

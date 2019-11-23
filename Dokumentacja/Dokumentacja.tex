@@ -1,0 +1,39 @@
+\documentclass[a4paper]{article}
+\usepackage{subfiles}
+\usepackage{blindtext} %\blindtext
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\selectlanguage{polish}
+\usepackage[unicode]{hyperref}
+\usepackage{amsfonts} %\mathbb
+\usepackage{amsmath}   %\tag and \eqref
+\usepackage{graphicx} %\includegraphics
+\usepackage{outlines}
+\usepackage{pdfpages}
+\usepackage{geometry}
+\usepackage{CustomCommands}
+\usepackage{svg}
+
+
+\title{IO - The Project Game}
+\author{Bartosz Chrostowski
+        \and Emil Dragańczuk
+        \and Jakub Drak Sbahi
+        \and Mikołaj Molenda
+        \and Alicja Moskal}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\subfile{Jezyk.tex}
+\newpage
+\subfile{Reguly.tex}
+% Przypadki użycia
+\subfile{./PrzypadkiUzycia/PrzypadkiUzycia.tex}
+\subfile{./DiagramyKlas/DiagramyKlas.tex}
+\end{document}
