@@ -3,27 +3,19 @@
 \subsection{Moduł Agenta}
 \subsubsection{Agent}
 \includeDiagram[width=\textwidth]{resources/Agent.eps}{Diagram klasy Player z modułu Agenta}
-\begin{figure}[H]
-    \paragraph{Zmienne}
-    \begin{center}
-        \begin{tabular}{ | l | l | l | p{5cm} |}
-            \hline
-            Dostęp & Typ & Nazwa & Opis \\ \hline
-            private & int & id & Identyfikator gracza \\ \hline
-            public & int & delayTime & Czas między wykonywanymi akcjami \\ \hline
-            public & int & penaltyTime & Czas kary \\ \hline
-            public & Team & team & Enum drużyny, w której jest gracz \\ \hline
-            public & bool & isLeader & Zmienna informująca czy gracz jest liderem zespołu \\ \hline
-            public & bool & havePiece & Zmienna informująca czy gracz jest w posiadaniu piece'a \\ \hline
-            public & Field[,] & board & Tablica dwuwymiarowa przechowująca planszę z perspektywy gracza \\ \hline
-            public & Tuple<int,int> & position & Współrzędne pola na planszy, na którym stoi gracz \\ \hline
-            public & List<Tuple<int,bool>> & waitingPlayers & Lista id oraz
-            informacji czy są oni liderami drużyny graczy oczekujących na odpowiedź \\ \hline
-            public & int[] & teamMates & Lista identyfikatorów graczy z naszej drużyny \\ \hline
-            private & IStrategy & strategy & Obiekt odpowiedzialny za używaną strategię \\ \hline
-        \end{tabular}
-    \end{center}
-\end{figure}
+\begin{itemize}
+    \method[private int]{id}{Identyfikator gracza.}
+    \method[public int]{delayTime}{Czas między wykonywanymi akcjami.}
+    \method[public int]{penaltyTime}{Czas kary.}
+    \method[public Team]{team}{Enum drużyny, w której jest gracz.}
+    \method[public bool]{isLeader}{Zmienna informująca czy gracz jest liderem zespołu.}
+    \method[public bool]{havePiece}{Zmienna informująca czy gracz jest w posiadaniu piece'a.}
+    \method[public Field[,]]{board}{Tablica dwuwymiarowa przechowująca planszę z perspektywy gracza.}
+    \method[public Tuple<int,int>]{position}{Współrzędne pola na planszy, na którym stoi gracz.}
+    \method[public List<Tuple<int,bool>>]{waitingPlayers}{Lista id oraz informacji czy są oni liderami drużyny graczy oczekujących na odpowiedź.}
+    \method[public int[]]{teamMates}{Lista identyfikatorów graczy z naszej drużyny.}
+    \method[private IStrategy]{strategy}{Obiekt odpowiedzialny za używaną strategię.}
+\end{itemize}
 \paragraph{Metody}
 \begin{itemize}
     \method{Player()}{Konstruktor klasy}
@@ -49,18 +41,11 @@
     \method{MakeDecision(Agent)}{Metoda decyduje na podstawie stanu Agenta jaką akcję wykonać i wykonuje ją na obiekcie Agenta.}
 \end{itemize}
 \subsubsection{Klasa Field}
-\begin{figure}[H]
-    \paragraph{Zmienne}
-    \begin{center}
-        \begin{tabular}{ | l | l | l | p{5cm} |}
-            \hline
-            Dostęp & Typ & Nazwa & Opis \\ \hline
-            public & GoalInfo & goalInfo & Stan wiedzy gracza na temat tego pola \\ \hline
-            public & bool & playerInfo & Informacja czy inny gracz stoi na tym polu \\ \hline
-            public & int & distToPiece & Odległość pola od najbliższego fragmentu \\ \hline
-        \end{tabular}
-    \end{center}
-\end{figure}
+\begin{itemize}
+    \method[public GoalInfo]{goalInfo}{Stan wiedzy gracza na temat tego pola}
+    \method[public bool]{playerInfo}{Informacja czy inny gracz stoi na tym polu}
+    \method[public int]{distToPiece}{Odległość pola od najbliższego fragmentu}
+\end{itemize}
 \subsubsection{Enum Team}
 \begin{itemize}
     \item \textbf{Red} - informacja, że gracz jest w drużynie czerwonej,
