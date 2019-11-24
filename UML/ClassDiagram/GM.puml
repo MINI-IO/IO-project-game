@@ -11,6 +11,7 @@ skinparam class {
 
 AbstractField <|-- GoalField
 AbstractField <|-- NonGoalField
+AbstractField <|-- TaskField
 
 class AbstractField
 {
@@ -28,6 +29,20 @@ class AbstractField
 
 class GoalField
 {
++ PickUp(Player)
++ Put(Piece): Boolean
+}
+
+class NonGoalField
+{
++ PickUp(Player)
++ Put(Piece): Boolean
+}
+
+class TaskField
+{
++ PickUp(Player)
++ Put(Piece): Boolean
 }
 
 class Configuration
@@ -40,21 +55,26 @@ class Configuration
 + responsePenalty: TimeSpan {readOnly}
 + x: Int {readOnly}
 + y: Int {readOnly}
++ numberOfGoals: Int {readOnly}
 }
 
 GM *-left-"1" Configuration
 
 class GM
 {
-+ AcceptMessage(Message) 
++ AcceptMessage(Message)
++ GenerateGUI()
 ~ Discover(Field)
+~ EndGame()
 - players: Dictionary<int,Player> {readOnly}
 - map: Field[][] {readOnly}
 - LegalKnowleadgeReplies: Int {unique}
 - conf: Configuration
-- GeneratePiece() 
+- GeneratePiece()
 - ForwardKnowleadgeQuestion(Messsage)
 - ForwardKnowleadgeReply(Message)
+~ RedTeamPoints: int
+~ BlueTeamPoints: int
 }
 
 
@@ -75,7 +95,7 @@ class Player
 + DestroyHolding()
 + CheckHolding()
 + Discover(GM)
-+ Put()
++ Put() : Boolean
 ~ SetHolding(Piece)
 ~ GetPosition(): Int[2]
 - id: Int
@@ -107,6 +127,16 @@ AbstractPiece <|-- NormalPiece
 Player --"0..1" AbstractPiece
 
 class AbstractPiece
+{
++ CheckForSham(): Boolean
++ Put(AbstractField): Boolean
+}
+class ShamPiece
+{
++ CheckForSham(): Boolean
++ Put(AbstractField): Boolean
+}
+class NormalPiece
 {
 + CheckForSham(): Boolean
 + Put(AbstractField): Boolean

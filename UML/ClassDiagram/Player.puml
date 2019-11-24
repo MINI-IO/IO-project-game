@@ -12,11 +12,12 @@ IStrategy <|.. Strategy
 Player *-- "4..*" Field
 Player *-- "1" IStrategy
 Player *-- "1" ISender
-Player *-- "1" Team
 Player *-- "1" GoalInfo
+Player <.right. Team
 
 class Player {
 - id: int
+- sender: ISender
 + delayTime: int
 + penaltyTime: int
 + team: Team
@@ -55,7 +56,7 @@ interface IStrategy <<interface>> {
 + MakeDecision()
 }
 
-interface IStrategy <<interface>> {
+interface ISender <<interface>> {
 + SendMessage()
 }
 

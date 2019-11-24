@@ -1,6 +1,7 @@
 ## Wyłącz wszystkie pdf z wyjątkiem tych w folderach resources
 *.pdf
 !**/resources/*.pdf
+*.svg
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
