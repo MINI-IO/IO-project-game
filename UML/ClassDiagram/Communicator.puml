@@ -17,11 +17,11 @@ class Communicator {
 }
 
 class AgentMessage {
-+ playload: string
++ payload: string
 }
 
 class GMMessage {
 + id: int
-+ playload: string
++ payload: string
 }
 @enduml
