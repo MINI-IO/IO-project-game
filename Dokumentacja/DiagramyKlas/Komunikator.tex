@@ -1,0 +1,29 @@
+\documentclass[../Dokumentacja.tex]{subfiles}
+\begin{document}
+
+\subsection{Moduł Serwera Komunikacyjnego}
+\includeDiagram[width=\textwidth]{resources/Komunicator.eps}{Diagram klas modułu Serwera Komunikacyjnego}
+
+\subsubsection{Klasa Communicator}
+\begin{itemize}
+    \method[private Socket]{gmSocket}{Gniazdo do połączeń TCP z Game Masterem.}
+    \method[private Socket]{agentSocket}{Gniazdo do połączeń TCP z Agentami.}
+\end{itemize}
+\paragraph{Metody}
+\begin{itemize}
+    \method{SendMessageToAgent()}{Metoda wysyłająca odpowiednią wiadomość wiadomość do Agenta za pomocą odpowiedniego gniazda.}
+    \method{SendMessageToGM()}{Metoda wysyłająca odpowiednią wiadomość wiadomość do Agenta za pomocą odpowiedniego gniazda.}
+\end{itemize}
+
+\subsubsection{Klasa AgentMessage}
+\begin{itemize}
+    \method{[public int]}{id}{Identyfikator agenta. do którego przesyłana jest wiadomość.}
+	\method{[public string]}{playload}{Treść wiadomości przesyłana od lub do agenta w formacie json.}
+\end{itemize}
+
+\subsubsection{Klasa GMMessage}
+\begin{itemize}
+	\method{[public string]}{playload}{Treść wiadomości przesyłana od lub do Game Mastera w formacie json.}
+\end{itemize}
+
+\end{document}
