@@ -2,6 +2,24 @@
 
 \begin{document}
 \section{Reguły}
+Gracze - Agenci, są podzieleni na dwie drużyny: czerwoną i niebieską. Agenci w obrębie drużyny muszą ze sobą współpracować. Możliwe akcje dla Agentów:
+\begin{itemize}
+	\item ruch po planszy
+	\item sprawdzenie fikcyjności fragmentu
+	\item odkrycie 8 przyległych pól
+	\item podniesienie fragmentu z pola
+	\item odłożenie fragmentu
+	\item wymiana informacji z innym agentem
+\end{itemize}
+
+Całość rozgrywki odbywa się na wygenerowanej planszy na której znajdują się Agenci, projekty (zbiory pól - celi dla danej drużyny) i fragmenty.  Agenci poruszają się po planszy i zbierają fragmenty, aby przenieść je i ułożyć na swoich celach.
+
+Plansza podzielona jest na 3 rozłączne obszary, kolejno: pole bramkowe drużyny czerwonej, pole zadań i pole bramkowe drużyny niebieskiej. Wymiary planszy są ustalane przed rozpoczęciem rozgrywki. W polach bramkowych znajdują się ukryte cele dla odpowiadających im drużyn. W polu zadań podczas rozgrywki pojawiają się fragmenty i fragmenty fikcyjne. 
+
+\textbf{Celem każdej drużyny jest skompletowanie projektu, czyli zakrycie odpowiednich pól zebranymi fragmentami. Wygrywa drużyna, która jako pierwsza zakryje wszystkie swoje pola celów.} 
+
+Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny. Pola projektu są ukryte, Agenci w trakcie rozgrywki mogą je odkryć poprzez akcję sprawdzenia wybranego pola lub położenie na niego fragmentu. 
+
 \subsection{Założenia ogólne}
 \begin{itemize}
     \item Powierzchnia pól bramkowych jest równa dla obu drużyn
@@ -13,6 +31,8 @@
     \item Odległości liczone są w metryce Manhattan
     \item Każda akcja powoduje założenie na agenta blokady na czas zależny od akcji i określony przed rozgrywką podczas której nie może wykonywać akcji
     \item W każdej drużynie jest jeden lider
+    \item Projekt do ułożenia są dla każdej drużyny identyczne
+
 \end{itemize}
 
 \subsection{Poruszanie}
@@ -26,12 +46,15 @@
 \subsection{Fragmenty}
 \begin{itemize}
     \item Na Każdym polu planszy, które nie jest polem bramkowym może znajdować się dowolna ilość fragmentów
+	\item Agent może podnieść fragment jedynie z pola na którym on sam się znajduje
     \item Agent może trzymać maksymalnie jeden fragment
     \item W każdym momencie w grze może znajdować się maksymalnie liczba fragmentów, która ustalana jest przed rozpoczęciem rozgrywki w konfiguracji
-    \item Fragmenty generowane są przez Game Mastera co określony interwał i odkładane na losowe pole planszy
+    \item Fragmenty generowane są przez Game Mastera co określony interwał czasowy i odkładane na losowe pole planszy
+	\item Fragmenty mogą być fikcyjne
     \item Odłożenie wygenerowanego przez Game Mastera fragmentu na pole na którym znajduje się Agent skutkuje natychmiastowym podniesieniem fragmentu przez tego Agenta, jeśli nie trzyma on już innego fragmentu, w przeciwnym przypadku fragment odkładany jest na pole
     \item Odłożenie fragmentu niefikcyjnego na polu bramkowym które jest celem skutkuje przyznaniem punktu drużynie do której należy dane pole bramkowe. Może nastąpić sytuacja, gdy Agent zdobywa punkt dla przeciwnej drużyny
-    \item Odłożenie fragmentu fikcyjnego na polu bramkowym zwraca informację agentowi, że dany fragment był fikcyjny oraz nie przyznaje punktów, nawet jeśli dane pole było celem
+    \item Odłożenie fragmentu niefikcyjnego na polu bramkowym które nie jest celem zwraca informację agentowi, że cel nie został osiągnięty.
+	\item Odłożenie fragmentu fikcyjnego na polu bramkowym zwraca informację agentowi, że dany fragment był fikcyjny oraz nie przyznaje punktów, nawet jeśli dane pole było celem
     \item Cel na który został odłożony fragment niefikcyjny przestaje być celem
     \item Odłożenie fragmentu na polu bramkowym skutkuje wyłączeniem tego fragmentu z gry
     \item Fragment trzymany przez gracza w każdym momencie może być przetestowany na bycie fikcyjnym
