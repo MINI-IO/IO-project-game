@@ -2,7 +2,7 @@
 \begin{document}
 
 \subsection{Moduł Serwera Komunikacyjnego}
-\includeDiagram[width=\textwidth]{resources/Komunicator.eps}{Diagram klas modułu Serwera Komunikacyjnego}
+\includeDiagram[width=\textwidth]{resources/Komunikator.eps}{Diagram klas modułu Serwera Komunikacyjnego}
 
 \subsubsection{Klasa Communicator}
 \begin{itemize}
@@ -12,18 +12,18 @@
 \paragraph{Metody}
 \begin{itemize}
     \method{SendMessageToAgent()}{Metoda wysyłająca odpowiednią wiadomość wiadomość do Agenta za pomocą odpowiedniego gniazda.}
-    \method{SendMessageToGM()}{Metoda wysyłająca odpowiednią wiadomość wiadomość do Agenta za pomocą odpowiedniego gniazda.}
+    \method{SendMessageToGM()}{Metoda wysyłająca odpowiednią wiadomość wiadomość do Game Mastera za pomocą odpowiedniego gniazda. Dodaje identyfikator agenta. }
 \end{itemize}
 
 \subsubsection{Klasa AgentMessage}
 \begin{itemize}
-    \method{[public int]}{id}{Identyfikator agenta. do którego przesyłana jest wiadomość.}
-	\method{[public string]}{playload}{Treść wiadomości przesyłana od lub do agenta w formacie json.}
+    \method[public int]{id}{Identyfikator agenta do którego przesyłana jest wiadomość.}
+	\method[public string]{payload}{Treść wiadomości przesyłana od lub do agenta w formacie JSON.}
 \end{itemize}
 
 \subsubsection{Klasa GMMessage}
 \begin{itemize}
-	\method{[public string]}{playload}{Treść wiadomości przesyłana od lub do Game Mastera w formacie json.}
+	\method[public string]{payload}{Treść wiadomości przesyłana od lub do Game Mastera w formacie JSON.}
 \end{itemize}
 
 \end{document}
