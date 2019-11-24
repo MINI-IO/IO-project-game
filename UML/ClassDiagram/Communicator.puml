@@ -8,12 +8,16 @@ skinparam class {
 BackgroundColor white
 }
 
-class Communicator {
-- gmSocket: Socket
-- agentSocket: Socket
+Communicator <.. AgentMessage
+Communicator <.. GMMessage
+Communicator *-right-"1" ISender
 
-+ SendMessageToAgent()
-+ SendMessageToGM()
+class Communicator {
+- correlation: Dictionary<int, Descriptor>
+- GMDescriptor: Descriptor
+- messageService: ISender
++ SendMessageToAgent(GMMessage)
++ SendMessageToGM(AgentMessage)
 }
 
 class AgentMessage {
@@ -23,5 +27,9 @@ class AgentMessage {
 class GMMessage {
 + id: int
 + payload: string
+}
+
+interface ISender  <<interface>> {
++ SendMessage()
 }
 @enduml

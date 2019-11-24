@@ -2,28 +2,35 @@
 \begin{document}
 
 \subsection{Moduł Serwera Komunikacyjnego}
-\includeDiagram[width=\textwidth]{resources/Komunikator.eps}{Diagram klas modułu Serwera Komunikacyjnego}
+\includeDiagram[ ]{resources/CS.eps}{Diagram klas modułu Serwera Komunikacyjnego}
 
 \subsubsection{Klasa Communicator}
+\paragraph{Zmienne}
 \begin{itemize}
-    \method[private Socket]{gmSocket}{Gniazdo do połączeń TCP z Game Masterem.}
-    \method[private Socket]{agentSocket}{Gniazdo do połączeń TCP z Agentami.}
+    \method[private Dictionary<int, Descriptor>]{correlation}{Słownik mapujący wewnętrzne id korelacji gry na deskryptory do wysłania wiadomości wykorzystywane przez API do komunikacji}
+    \method[private Descriptor]{GMDescriptor}{Deskryptor używany do wysyłania wiadomości do GM}
+    \method[private ISender]{senderService}{Obiekt wykorzystywany do wysyłania wiadomości}
 \end{itemize}
 \paragraph{Metody}
 \begin{itemize}
-    \method{SendMessageToAgent()}{Metoda wysyłająca odpowiednią wiadomość wiadomość do Agenta za pomocą odpowiedniego gniazda.}
-    \method{SendMessageToGM()}{Metoda wysyłająca odpowiednią wiadomość wiadomość do Game Mastera za pomocą odpowiedniego gniazda. Dodaje identyfikator agenta. }
+    \method{SendMessageToAgent(GMMessage)}{Metoda wysyłająca odpowiednią wiadomość wiadomość do Agenta. Na podstawie id z wiadomości znajduje odpowiedni deskryptor i wysyła na niego payload za pomocą ISender. Wywoływana przez API do komunikacji na zdarzenie otrzymania wiadomości od Agenta}
+    \method{SendMessageToGM(AgentMessage)}{Metoda wysyłająca odpowiednią wiadomość wiadomość do Game Mastera. Wywoływana przez API do komunikacji na zdarzenie otrzymania wiadomości od GM}
 \end{itemize}
 
 \subsubsection{Klasa AgentMessage}
 \begin{itemize}
     \method[public int]{id}{Identyfikator agenta do którego przesyłana jest wiadomość.}
-	\method[public string]{payload}{Treść wiadomości przesyłana od lub do agenta w formacie JSON.}
+	\method[public string]{payload}{Treść wiadomości przesyłana do agenta w formacie JSON.}
 \end{itemize}
 
 \subsubsection{Klasa GMMessage}
 \begin{itemize}
-	\method[public string]{payload}{Treść wiadomości przesyłana od lub do Game Mastera w formacie JSON.}
+	\method[public string]{payload}{Treść wiadomości przesyłana do Game Mastera w formacie JSON.}
+\end{itemize}
+
+\subsubsection{Interfejs ISender}
+\begin{itemize}
+    \method[public void]{SendMessage()}{Metoda odpowiedzialna za wysłanie za pomocą API do komunikacji wiadomości do odpowiedniego Agenta lub GM w zależności od paramterów wywołania }
 \end{itemize}
 
 \end{document}

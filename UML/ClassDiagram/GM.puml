@@ -62,17 +62,17 @@ GM *-left-"1" Configuration
 
 class GM
 {
-+ AcceptMessage(Message)
++ AcceptMessage()
 + GenerateGUI()
 ~ Discover(Field)
 ~ EndGame()
 - players: Dictionary<int,Player> {readOnly}
 - map: Field[][] {readOnly}
-- LegalKnowleadgeReplies: Int {unique}
+- LegalKnowleadgeReplies: Int[2] {unique}
 - conf: Configuration
 - GeneratePiece()
-- ForwardKnowleadgeQuestion(Messsage)
-- ForwardKnowleadgeReply(Message)
+- ForwardKnowleadgeQuestion()
+- ForwardKnowleadgeReply()
 ~ RedTeamPoints: int
 ~ BlueTeamPoints: int
 }
@@ -110,13 +110,7 @@ class Player
 
 interface MessageSenderService <<interface>>
 {
-+ MoveResponse()
-+ DiscoveryResponse()
-+ PutResponse()
-+ CheckPieceResponse()
-+ InformationResponse()
-+ AskResponse()
-+ LockedError()
++ SendMessage()
 }
 
 GM *--"4..*" AbstractField
@@ -129,17 +123,17 @@ Player --"0..1" AbstractPiece
 class AbstractPiece
 {
 + CheckForSham(): Boolean
-+ Put(AbstractField): Boolean
++ Put(AbstractField): Int
 }
 class ShamPiece
 {
 + CheckForSham(): Boolean
-+ Put(AbstractField): Boolean
++ Put(AbstractField): Int
 }
 class NormalPiece
 {
 + CheckForSham(): Boolean
-+ Put(AbstractField): Boolean
++ Put(AbstractField): Int
 }
 
 @enduml
