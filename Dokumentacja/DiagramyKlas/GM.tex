@@ -28,7 +28,7 @@
     \method[public void]{Discover(GM)}{Metoda wykonująca akcję odkrycia. Wykorzystuje funkcję klasy GM. Wysyła agentowi informację przez MessageSenderService.}
     \method[public bool]{Put()}{Metoda odkładająca fragment w polu, w którym się znajdujemy. Korzysta z metody obiektu postion. Wysyła agentowi informację przez MessageSenderService. Zwraca true jeśli drużynie należy przyznać punkt}
     \method{SetHolding()}{Metoda przypisuje graczowi fragment.}
-    \method[internal int[2]]{GetPosition()}{Metoda pobiera współrzędne gracza.}
+    \method[{internal int[2]}]{GetPosition()}{Metoda pobiera współrzędne gracza.}
 \end{itemize}
 
 
@@ -119,7 +119,7 @@ Klasa reprezentująca pole zadań.
 \paragraph{Zmienne}
 \begin{itemize}
     \method[private readonly Dictionary<int,Player>]{players}{Słownik mapujący id gracza z wiadomości na obiekt}
-    \method[private readonly Field[][]]{map}{Faktyczny stan planszy.}
+    \method[{private readonly Field[][]}]{map}{Faktyczny stan planszy.}
     \method[private Set<(int,int)>]{LegalKnowleadgeReplies[2]}{Zbiór par id które oznaczają, dana odpowiedź z wymianą informacjie jest legalna, bo była poprzedzona zapytaniem.}
     \method[private Configuration]{conf}{Obiekt parametrów rozgrywki.}
 \end{itemize}
