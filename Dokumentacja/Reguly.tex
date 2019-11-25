@@ -8,20 +8,23 @@ Gracze - Agenci, są podzieleni na dwie drużyny: czerwoną i niebieską. Agenci
 	\item sprawdzenie fikcyjności fragmentu
 	\item odkrycie 8 przyległych pól
 	\item podniesienie fragmentu z pola
+	\item sprawdzenie fikcyjności fragmentu
+	\item zniszcznie fragmentu
 	\item odłożenie fragmentu
 	\item wymiana informacji z innym agentem
 \end{itemize}
 
 Całość rozgrywki odbywa się na wygenerowanej planszy na której znajdują się Agenci, projekty (zbiory pól - celi dla danej drużyny) i fragmenty.  Agenci poruszają się po planszy i zbierają fragmenty, aby przenieść je i ułożyć na swoich celach.
 
-Plansza podzielona jest na 3 rozłączne obszary, kolejno: pole bramkowe drużyny czerwonej, pole zadań i pole bramkowe drużyny niebieskiej. Wymiary planszy są ustalane przed rozpoczęciem rozgrywki. W polach bramkowych znajdują się ukryte cele dla odpowiadających im drużyn. W polu zadań podczas rozgrywki pojawiają się fragmenty i fragmenty fikcyjne. 
+Plansza podzielona jest na 3 rozłączne obszary, kolejno: pole bramkowe drużyny czerwonej, pole zadań i pole bramkowe drużyny niebieskiej. Wymiary planszy są ustalane przed rozpoczęciem rozgrywki. W polach bramkowych znajdują się ukryte cele dla odpowiadających im drużyn. W polu zadań podczas rozgrywki pojawiają się fragmenty i fragmenty fikcyjne.
 
-\textbf{Celem każdej drużyny jest skompletowanie projektu, czyli zakrycie odpowiednich pól zebranymi fragmentami. Wygrywa drużyna, która jako pierwsza zakryje wszystkie swoje pola celów.} 
+\textbf{Celem każdej drużyny jest skompletowanie projektu, czyli zakrycie odpowiednich pól zebranymi fragmentami. Wygrywa drużyna, która jako pierwsza zakryje wszystkie swoje pola celów.}
 
-Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny. Pola projektu są ukryte, Agenci w trakcie rozgrywki mogą je odkryć poprzez akcję sprawdzenia wybranego pola lub położenie na niego fragmentu. 
+Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny. Pola projektu są ukryte, Agenci w trakcie rozgrywki mogą je odkryć poprzez akcję sprawdzenia wybranego pola lub położenie na niego fragmentu.
 
 \subsection{Założenia ogólne}
 \begin{itemize}
+    \item Są dwie drużyny
     \item Powierzchnia pól bramkowych jest równa dla obu drużyn
     \item Pole bramkowe zawsze ma szerokość taką jak szerokość pola planszy
     \item Pola bramkowe stanowi $n$ pierwszych i $n$ ostatnich wierszy planszy, $n > 0$
@@ -29,19 +32,20 @@ Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny.
     \item Powierzchnia pola zadań oraz powierzchnia obu pól bramkowych są niezerowe
     \item Pola bramkowe (ułożenie celów) obu drużyn są symetryczne względem środka planszy
     \item Odległości liczone są w metryce Manhattan
-    \item Każda akcja powoduje założenie na agenta blokady na czas zależny od akcji i określony przed rozgrywką podczas której nie może wykonywać akcji
+    \item Każda akcja powoduje założenie na agenta blokady, na czas zależny od akcji i określony przed rozgrywką, podczas której nie może wykonywać akcji
     \item W każdej drużynie jest jeden lider
     \item Projekt do ułożenia są dla każdej drużyny identyczne
-
+    \item Warunkiem wygranej jest zakrycie wszystkich celów, czyli zdobycie tylu punktów ile jest celów
+    \item Akcje agentów wykonywane są asynchronicznie
 \end{itemize}
-
 \subsection{Poruszanie}
 \begin{itemize}
     \item Agent może poruszać się w 4 kierunkach: zachód, północ, wschód, południe, to jest; może przemieścić się na pole które jest przyległe do pola na którym się znajduje
-    \item Agent może poruszyć się na dowolne pole planszy
+    \item Agent może przebywać na dowolnym polu planszy niezajętym przez innego Agenta
     \item Próba ruchu poza planszę skutkuje brakiem ruchu
     \item Próba poruszenia się na pole zajęte przez innego agenta skutkuje brakiem ruchu
     \item Próba poruszenia się dwóch różnych agentów na te samo pole skutkuje poruszeniem jednego z nich, wybór agenta do poruszenia jest dowolny
+    \item Agent wchodzący do pola otrzymuje odległość tego pola od najbliższego kawałka.
 \end{itemize}
 \subsection{Fragmenty}
 \begin{itemize}
@@ -55,10 +59,15 @@ Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny.
     \item Odłożenie fragmentu niefikcyjnego na polu bramkowym które jest celem skutkuje przyznaniem punktu drużynie do której należy dane pole bramkowe. Może nastąpić sytuacja, gdy Agent zdobywa punkt dla przeciwnej drużyny
     \item Odłożenie fragmentu niefikcyjnego na polu bramkowym które nie jest celem zwraca informację agentowi, że cel nie został osiągnięty.
 	\item Odłożenie fragmentu fikcyjnego na polu bramkowym zwraca informację agentowi, że dany fragment był fikcyjny oraz nie przyznaje punktów, nawet jeśli dane pole było celem
-    \item Cel na który został odłożony fragment niefikcyjny przestaje być celem
-    \item Odłożenie fragmentu na polu bramkowym skutkuje wyłączeniem tego fragmentu z gry
+    \item Cel na który został odłożony fragment niefikcyjny przestaje być celem, czyli kolejne odłożenie na nim fragmentu nie przyznaje punktów
+    \item Odłożenie fragmentu na polu bramkowym skutkuje wyłączeniem tego fragmentu z gry, nie można go już podnieść
     \item Fragment trzymany przez gracza w każdym momencie może być przetestowany na bycie fikcyjnym
     \item Fragment trzymany przez gracza w każdym momencie może być zniszczony
+\end{itemize}
+\subsection{Akcja odkrycia}
+\begin{itemize}
+    \item Udziela informacji o odległościach w metryce Manhattan pól przyległych oraz ze wpólnymi wierzchołkami do pola na którym znajduje się Agent
+    \item Jeśli Agent znajduje się na krawędzi planszy, nie otrzymuje informacji o polach znajdujących się poza planszą
 \end{itemize}
 \subsection{Wymiana informacji}
 \begin{itemize}
