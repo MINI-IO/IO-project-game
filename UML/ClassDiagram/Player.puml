@@ -12,8 +12,8 @@ IStrategy <|.. Strategy
 Player *-- "4..*" Field
 Player *-- "1" IStrategy
 Player *-- "1" ISender
-Player *-- "1" GoalInfo
-Player <.right. Team
+Player ..> GoalInfo
+Player ..> Team
 
 class Player {
 - id: int
