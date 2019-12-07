@@ -1,0 +1,45 @@
+@startuml
+
+title Game Master - Rozpoczynanie rozgrywki
+
+
+start
+
+:Użyj domyślnych parametrów do połączenia z Serwerem;
+
+while (Pomyślne połączenie z Serwerem?) is (Nie)
+  :Poproś użytkownika o wprowadzenie
+  własnych parametrów do połączenia z Serwerem;
+
+  :Użyj wprowadzonych parametrów do połączenia z Serwerem;
+endwhile (Tak)
+
+if (Użytkownik chce spersonalizowaną 
+konfigurację planszy?) then (Tak)
+  :Załaduj konfiguracje planszy użytkownika;
+else (Nie)
+  :Załaduj domyślną konfigurację planszy;
+endif
+
+:Wygeneruj planszę na podstawie konfiguracji;
+
+if (Użytkownik chce określić maksymalną ilość Agentów?) then (Tak)
+  :Zaktualizuj maksymalną ilość Agentów;
+else (Nie)
+  :Korzystaj z domyślnej maksymalnej ilości Agentów;
+endif
+
+repeat
+  :Czekaj na powiadomienie o dołączeniu Agenta;
+repeat while (Maksymalna ilość dołączonych Agentów osiągnięta?)
+
+:Wygeneruj pozycje startowe Agentów;
+
+:Wyślij każdemu Agentowi informacje o 
+rozpoczęciu rozgrywki wraz z informacją
+o konfiguracji planszy oraz jego miejscu
+startowym;
+
+stop
+
+@enduml
