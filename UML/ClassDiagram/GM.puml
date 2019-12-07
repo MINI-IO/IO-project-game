@@ -86,7 +86,7 @@ Blue
 GM *--"2..*" Player
 Player o--"0..1" AbstractField
 Player *-right-"1" MessageSenderService
-Player <.down. Team
+Player .down.> Team
 AbstractField o--"0..*" AbstractPiece
 class Player
 {
