@@ -1,0 +1,38 @@
+@startuml
+
+title Game Master - Obsługa zapytania Agenta
+
+
+start
+
+:Odbierz zapytanie Agenta;
+
+:Zwaliduj żądaną akcje
+na podstawie stanu planszy;
+
+if (Stan planszy umożliwania wykonanie akcji?) then (Tak)
+
+  if (Akcja zmienia stan planszy?) then (Tak)
+  
+    :Zaktualizuj stan planszy;
+  
+  else (Nie)
+  
+  endif
+  
+   :Przygotuj odpowiedź zezwalającą 
+  na wykonanie akcji;
+  
+else (Nie)
+
+  :Przygotuj odpowiedź 
+  odmawiającą wykonania akcji, 
+  z uzasadnieniem jeśli to wymagane;
+  
+endif
+
+:Wyślij odpowiedź do Serwera;
+
+stop
+
+@enduml
