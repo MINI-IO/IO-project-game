@@ -25,7 +25,7 @@ deactivate gm
 deactivate User
 
 loop
-	sk <- :zapytanieAgenta()
+	sk <- Agent :zapytanieAgenta()
 	activate sk
 	sk -> gm: zapytanieAgenta()
 	activate gm
