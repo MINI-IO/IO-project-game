@@ -1,5 +1,8 @@
 @startuml
 
+skinparam shadowing false
+skinparam monochrome true
+
 title Game Master - Rozpoczynanie rozgrywki
 
 
@@ -23,15 +26,15 @@ endif
 
 :Wygeneruj planszę na podstawie konfiguracji;
 
-if (Użytkownik chce określić maksymalną ilość Agentów?) then (Tak)
-  :Zaktualizuj maksymalną ilość Agentów;
+if (Użytkownik chce określić ilość Agentów?) then (Tak)
+  :Zaktualizuj ilość Agentów w grze;
 else (Nie)
-  :Korzystaj z domyślnej maksymalnej ilości Agentów;
+  :Korzystaj z domyślnej ilości Agentów;
 endif
 
 repeat
   :Czekaj na powiadomienie o dołączeniu Agenta;
-repeat while (Maksymalna ilość dołączonych Agentów osiągnięta?)
+repeat while (Oczekiwana ilość dołączonych Agentów osiągnięta?)
 
 :Wygeneruj pozycje startowe Agentów;
 
