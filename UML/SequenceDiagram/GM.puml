@@ -45,7 +45,7 @@ end
 
 gm ->> sk: zakonczGre()
 activate sk
-sk ->> : graZakonczona()
+sk ->> Agent : graZakonczona()
 deactivate sk
 
 gm ->> User: wynikGry()
