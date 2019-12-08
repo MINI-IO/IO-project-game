@@ -6,7 +6,7 @@ skinparam sequenceGroupBorderThickness 0.5
 |CS|
 |GM|
 start
-:Poinformowanie urzytkownika o rozpoczęciu>
+:Poinformowanie użytkownika o rozpoczęciu>
 :Przygotowanie i rozesłanie wiadomości\no rozpocząciu do wszystkich graczy;
 |CS|
 :Odpakowanie wiadomości;
