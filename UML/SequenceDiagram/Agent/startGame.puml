@@ -1,0 +1,20 @@
+@startuml
+skinparam shadowing false
+skinparam monochrome true
+skinparam sequenceGroupBorderThickness 0.5
+|Agent|
+|CS|
+|GM|
+start
+:Poinformowanie urzytkownika o rozpoczęciu>
+:Przygotowanie i rozesłanie wiadomości\no rozpocząciu do wszystkich graczy;
+|CS|
+:Odpakowanie wiadomości;
+:Przesłanie zawartości wiadomości do Agetna;
+|Agent|
+:Interpretacja zawartości wiadomości i\nustawienie parametrów strategii na\npodstawie otrzymanych informacji;
+:Wykonywanie strategii;
+stop
+
+
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+skinparam shadowing false
+skinparam monochrome true
+skinparam sequenceGroupBorderThickness 0.5
+|Agent|
+start
+:Wyślij zapytanie o dołączenie do rozgrywki;
+|GM|
+|CS|
+:Opakuj wiadomość id wysyłającego agenta;
+if () then (GM połączony)
+    |GM|
+    :Sprawdzenie czy może dołączyć;
+
+    if () then (Agent może dołączyć)
+        |Agent|
+        :Poinformowanie o dołączniu i\nprzejście do oczekiwania na\nrozpoczęcie;
+        stop
+    else (Agent nie może dołączyć)
+        |Agent|
+        :Poinformowanie o odrzuceniu dołączenia \n zakończenie działania programu;
+        stop
+    endif
+else (GM niepołączony)
+    |CS|
+    :Odłóż wiadomość na kolejkę wiadomości;
+    stop
+endif
+
+
+@enduml
