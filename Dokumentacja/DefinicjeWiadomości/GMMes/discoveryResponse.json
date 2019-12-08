@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "type": "object",
+    "properties": {
+        "distanceFromCurrent": { "type":"integer" },
+        "distanceN": { "type":"integer" },
+        "distanceNE": { "type":"integer" },
+        "distanceE": { "type":"integer" },
+        "distanceSE": { "type":"integer" },
+        "distanceS": { "type":"integer" },
+        "distanceSW": { "type":"integer" },
+        "distanceW": { "type":"integer" },
+        "distanceNW": { "type":"integer" }
+    }
+}
