@@ -10,7 +10,7 @@ start
 :Przygotowanie i rozesłanie wiadomości\no rozpocząciu do wszystkich graczy;
 |CS|
 :Odpakowanie wiadomości;
-:Przesłanie zawartości wiadomości do Agetna;
+:Przesłanie zawartości wiadomości do Agenta;
 |Agent|
 :Interpretacja zawartości wiadomości i\nustawienie parametrów strategii na\npodstawie otrzymanych informacji;
 :Wykonywanie strategii;
