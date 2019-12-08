@@ -30,7 +30,7 @@ loop
 	sk -> gm: zapytanieAgenta()
 	activate gm
 	gm -->> sk: odpowiedzAgentowi()
-	sk -->> : odpowiedzAgentowi()
+	sk -->> Agent : odpowiedzAgentowi()
 	deactivate sk
 	
 	gm -->> User: aktualizujStanPlanszy()
