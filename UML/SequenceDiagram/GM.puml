@@ -17,7 +17,7 @@ activate sk
 sk <- Agent: dolaczDoRozgrywki()
 sk -> gm: dolaczAgentaDoRozgrywki()
 gm -->> sk: czyAgentGra()
-sk -->> : czyAgentGra()
+sk -->> Agent : czyAgentGra()
 deactivate sk
 
 gm -->> User: graRozpoczeta()
