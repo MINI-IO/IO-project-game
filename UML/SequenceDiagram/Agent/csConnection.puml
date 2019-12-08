@@ -1,0 +1,14 @@
+@startuml
+skinparam shadowing false
+skinparam monochrome true
+skinparam sequenceGroupBorderThickness 0.5
+|Agent|
+start
+:Połączenie z portem pobranym z konfiguracji;
+|CS|
+:Odebranie informacji o połączeniu agenta\nna porcie TCP;
+:Nadaj agentowi unikalne id;
+|Agent|
+:Przejście do dołączania do rozgrywki;
+stop
+@enduml
