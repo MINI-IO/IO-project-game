@@ -1,0 +1,42 @@
+@startuml
+
+skinparam shadowing false
+skinparam monochrome true
+skinparam sequenceGroupBorderThickness 0.5
+
+actor User
+participant "Serwer Komunikacyjny" as sk
+participant "Game Master" as gm
+participant "Agent" as ag
+
+User -> sk: Uruchom serwer
+activate User
+activate sk
+sk <- gm: połączZSerwerem()
+activate gm
+
+sk <- ag: DołączDoGry()
+sk -> gm: AgentDołącza()
+deactivate gm
+deactivate sk
+
+loop
+    alt Wiadomość od Agenta
+	    sk <- ag: zapytanieAgenta()
+	    activate sk
+	    sk -->> gm: zapytanieAgenta()
+	    deactivate sk
+	 
+	 else Wiadomość od GMa
+	    sk <- gm: wiadmośćGMa()
+	    activate sk
+	    sk -->> ag: wiadomośćGMa()
+	    deactivate sk
+	 end
+	 opt Użytkownik wyłącza serwer
+	    User -> sk: WyłączSerwer()
+	    deactivate User
+	 end
+end
+
+@enduml
