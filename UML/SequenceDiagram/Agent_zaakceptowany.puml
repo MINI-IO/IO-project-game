@@ -1,0 +1,63 @@
+@startuml
+skinparam shadowing false
+skinparam monochrome true
+skinparam sequenceGroupBorderThickness 0.5
+
+actor Agent
+participant "Serwer Komunikacyjny" as sk
+participant "Game Master" as gm
+participant "Agent" as ag
+
+activate Agent
+Agent -> sk: dolaczDoRozgrywki()
+activate sk
+sk ->> gm: dolaczAgentaDoRozgrywki()
+activate gm
+gm -->> sk: potwierdzDolaczenie()
+deactivate gm
+sk -->> Agent: potwierdzDolaczenie()
+deactivate sk
+deactivate Agent
+
+gm ->> sk: rozpocznijRozgrywke()
+activate gm
+deactivate gm
+activate sk
+sk ->> Agent: rozpocznijRozgrywke()
+activate Agent
+
+loop
+    opt
+        ag ->> sk: zapytanieDoInnegoAgenta()
+        activate ag
+        sk ->> Agent: zapytanieOdInnegoAgenta()        
+    end
+    alt
+        Agent -->> sk: odpowedzNaZapytanieInnegoAgenta()
+        sk -->> ag: przekazOdpowiedzNaZapytanie()
+        deactivate ag
+    else
+        Agent ->> sk: wyslijZapytanieDoAgenta()
+    else
+        Agent ->> sk: wykonajRuch()
+    else
+        Agent ->> sk: podniesKawalek()
+    else
+        Agent ->> sk: odlozKawalek()
+    else
+        Agent ->> sk: sprawdzKawalek()        
+    end
+    sk -->> Agent: odpowedzNaAkcje()
+end
+deactivate Agent
+deactivate sk
+
+gm ->> sk: zakonczRozgrywke()
+activate gm
+deactivate gm
+activate sk 
+sk ->> Agent: zakonczRozgrywke()
+activate Agent
+deactivate sk
+deactivate Agent
+@enduml

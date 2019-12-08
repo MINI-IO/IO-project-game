@@ -1,0 +1,20 @@
+@startuml
+skinparam shadowing false
+skinparam monochrome true
+skinparam sequenceGroupBorderThickness 0.5
+
+actor Agent
+participant "Serwer Komunikacyjny" as sk
+participant "Game Master" as gm
+
+activate Agent
+Agent -> sk: dolaczDoRozgrywki()
+activate sk
+sk ->> gm: dolaczAgentaDoRozgrywki()
+activate gm
+gm -->> sk: odmowaDolaczenia()
+deactivate gm
+sk -->> Agent: odmowaDolaczenia()
+deactivate sk
+deactivate Agent
+@enduml
