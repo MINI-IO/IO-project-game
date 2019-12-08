@@ -17,7 +17,7 @@ activate sk
 sk <- Agent: dolaczDoRozgrywki()
 sk -> gm: dolaczAgentaDoRozgrywki()
 gm -->> sk: czyAgentGra()
-sk -->> : czyAgentGra()
+sk -->> Agent : czyAgentGra()
 deactivate sk
 
 gm -->> User: graRozpoczeta()
@@ -25,12 +25,12 @@ deactivate gm
 deactivate User
 
 loop
-	sk <- :zapytanieAgenta()
+	sk <- Agent :zapytanieAgenta()
 	activate sk
 	sk -> gm: zapytanieAgenta()
 	activate gm
 	gm -->> sk: odpowiedzAgentowi()
-	sk -->> : odpowiedzAgentowi()
+	sk -->> Agent : odpowiedzAgentowi()
 	deactivate sk
 	
 	gm -->> User: aktualizujStanPlanszy()
@@ -45,7 +45,7 @@ end
 
 gm ->> sk: zakonczGre()
 activate sk
-sk ->> : graZakonczona()
+sk ->> Agent : graZakonczona()
 deactivate sk
 
 gm ->> User: wynikGry()
