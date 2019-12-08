@@ -1,0 +1,59 @@
+@startuml
+
+skinparam shadowing false
+skinparam monochrome true
+skinparam sequenceGroupBorderThickness 0.5
+
+actor User
+participant "Game Master" as gm
+participant "Serwer Komunikacyjny" as sk
+
+User -> gm: rozpocznijGre()
+activate User
+activate gm
+gm -> sk: rozpocznijGre()
+activate sk
+
+sk <- Agent: dolaczDoRozgrywki()
+sk -> gm: dolaczAgentaDoRozgrywki()
+gm -->> sk: czyAgentGra()
+sk -->> : czyAgentGra()
+deactivate sk
+
+gm -->> User: graRozpoczeta()
+deactivate gm
+deactivate User
+
+loop
+	sk <- :zapytanieAgenta()
+	activate sk
+	sk -> gm: zapytanieAgenta()
+	activate gm
+	gm -->> sk: odpowiedzAgentowi()
+	sk -->> : odpowiedzAgentowi()
+	deactivate sk
+	
+	gm -->> User: aktualizujStanPlanszy()
+	deactivate gm
+end
+
+opt uzytkownik konczy gre
+	User -> gm: zakonczGre()
+	activate User
+	activate gm
+end
+
+gm ->> sk: zakonczGre()
+activate sk
+sk ->> : graZakonczona()
+deactivate sk
+
+gm ->> User: wynikGry()
+deactivate gm
+deactivate User
+
+deactivate User
+deactivate gm
+deactivate sk
+
+@enduml
