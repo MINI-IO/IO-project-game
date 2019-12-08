@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "type": "object",
+    "required":["messageID", "timeSent"],
+    "properties": {
+        "agentID": {
+            "type":"integer"
+        },
+        "payload": {
+            "type":"object"
+        }
+    }
+}

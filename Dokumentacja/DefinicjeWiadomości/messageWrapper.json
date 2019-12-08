@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "type": "object",
+    "required":["messageID", "timeSent"],
+    "properties": {
+        "addressee": {
+            "type": "integer"
+        },
+        "messageID": {
+            "type":"integer"
+        },
+        "timeSent": {
+            "type":"string",
+            "format":"date-time"
+        },
+        "payload": {
+            "type":"object"
+        }
+    }
+}

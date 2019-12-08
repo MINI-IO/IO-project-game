@@ -1,0 +1,73 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "type": "object",
+    "properties": {
+        "agentID": {
+            "type":"number"
+        },
+        "alliesIDs": {
+            "type":"array",
+            "items": {
+                "type": "number"
+            }
+        },
+        "enemiesIDs": {
+            "type":"array",
+            "items": {
+                "type": "number"
+            }
+        },
+        "teamId": {
+            "type":"integer",
+            "minimum": 0,
+            "maximum": 1
+        },
+        "boardSize": {
+            "type":"object",
+            "required":["x", "y"],
+            "properties": {
+                "x": {"type": "integer"},
+                "y": {"type": "integer"}
+            }
+        },
+        "goalAreaSize": {
+            "type":"number"
+        },
+        "numberOfPlayers": {
+            "type":"object",
+            "required":["allies", "enemies"],
+            "properties": {
+                "allies": {"type":"integer"},
+                "enemies": {"type":"integer"}
+            }
+        },
+        "numberOfPieces": {
+            "type":"integer"
+        },
+        "numberOfGoals": {
+            "type":"integer"
+        },
+        "penalties": {
+            "type":"object",
+            "properties": {
+                "move": {"type":"string"},
+                "checkForScham": {"type":"string"},
+                "discovery": {"type":"string"},
+                "destroyPiece": {"type":"string"},
+                "putPiece": {"type":"string"},
+                "informationExchange": {"type":"string"}
+            }
+        },
+        "shamPieceProbability": {
+            "type":"number"
+        },
+        "position": {
+            "type":"object",
+            "required":["x", "y"],
+            "properties": {
+                "x": {"type": "integer"},
+                "y": {"type": "integer"}
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "type": "object",
+    "properties": {
+        "madeMove": {
+            "type": "boolean"
+        },
+        "currentPosition": {
+            "type":"object",
+            "required":["x", "y"],
+            "properties": {
+                "x": {"type": "integer"},
+                "y": {"type": "integer"}
+            }
+        },
+        "closestPiece": {
+            "type": "integer",
+            "minimum": 0
+        }
+    }
+}
