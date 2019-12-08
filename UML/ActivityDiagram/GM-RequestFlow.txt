@@ -1,5 +1,8 @@
 @startuml
 
+skinparam shadowing false
+skinparam monochrome true
+
 title Game Master - Obsługa zapytania Agenta
 
 
