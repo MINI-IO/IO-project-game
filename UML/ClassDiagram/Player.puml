@@ -72,7 +72,6 @@ Blue
 
 enum GoalInfo <<enumeration>> {
 IDK
-GoalInfoDiscovered
 DiscoveredNotGoal
 DiscoveredGoal
 }
