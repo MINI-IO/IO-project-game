@@ -1,0 +1,27 @@
+@startuml Diagram stanu gry
+skinparam shadowing false
+skinparam monochrome true
+hide empty description
+title Diagram stanu gry
+
+[*] --> PobieranieParametrówRozgrywki : uruchomienie gry
+PobieranieParametrówRozgrywki : entry/ pobierz parametry
+PobieranieParametrówRozgrywki : exit/ ustaw parametry
+
+PobieranieParametrówRozgrywki -> OczekiwanieNaGraczy : ustawienie parametrów
+OczekiwanieNaGraczy --> GenerowaniePozycjiStartowychAgentów : dołączenie graczy
+
+GenerowaniePozycjiStartowychAgentów --> WysyłanieInformacjiORozpoczęciuRozgrywki
+WysyłanieInformacjiORozpoczęciuRozgrywki --> TrwanieRozgrywki : ropoczęcie gry
+
+TrwanieRozgrywki --> ZatrzymanieRozgrywki : pauza
+ZatrzymanieRozgrywki --> TrwanieRozgrywki : wznowienie
+
+TrwanieRozgrywki --> WyświetlanieStatystyk : zakończenie gry
+WyświetlanieStatystyk --> [*] : zamknięcie aplikacji
+
+TrwanieRozgrywki --> ObsługaZapytania : otrzymanie zapytania
+ObsługaZapytania --> TrwanieRozgrywki : odpowiedź na zapytanie
+ObsługaZapytania: entry/ pobierz zapytanie
+ObsługaZapytania: exit/ odpowiedz na zapytanie
+@enduml 
