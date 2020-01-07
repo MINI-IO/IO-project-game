@@ -2,7 +2,7 @@
 skinparam shadowing false
 skinparam monochrome true
 hide empty description
-title Kawałek
+title Fragment
 [*] -> Aktywny : wygenerowanie
 Aktywny --> Podniesiony : podniesienie
 
