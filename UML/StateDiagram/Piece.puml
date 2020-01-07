@@ -1,0 +1,22 @@
+@startuml
+skinparam shadowing false
+skinparam monochrome true
+hide empty description
+title Kawałek
+[*] -> Aktywny : wygenerowanie
+Aktywny --> Podniesiony : podniesienie
+
+Podniesiony --> Położony : położenie
+Podniesiony --> Sprawdzony : sprawdzenie
+Podniesiony --> [*] : zniszczenie
+
+Sprawdzony --> Położony : niefikcyjny
+Sprawdzony --> [*] : fikcyjny
+Sprawdzony : entry/ sprawdż fikcyjność
+Sprawdzony : exit/ zwróc informacje
+
+Położony --> [*] : pole bramkowe
+Położony --> Aktywny : pole zadań
+Położony : entry/ sprawdź pole
+Położony : exit/ zwróć informacje
+@enduml
