@@ -5,13 +5,20 @@ hide empty description
 
 title Cel
 
-[*] -> Pusty : start
-Pusty -> MaAgenta : wejście agenta
-Pusty -> [*] : koniec
+state "Pusty" as pusty
+state "Ma Agenta" as maAgenta
+state "Ma Fragment" as maFragment
+state "Ma agenta i fragment" as maif
 
-MaAgenta -> MaFragment : przyjęcie fragmentu
-MaFragment -> MaAgenta : wejście agenta
-MaAgenta --> Pusty : zejście bez sukcesu
+[*] -> pusty : start
+pusty -down-> maAgenta : wejście agenta
+pusty -> [*] : koniec
 
-MaFragment -> [*] : koniec
+maAgenta -right-> maif : przyjęcie fragmentu
+maAgenta -> pusty : zejście agenta
+
+maFragment -up-> maif : wejście agenta
+maif -down-> maFragment : zejście agenta
+maif -right-> [*] : koniec
+maFragment --> [*] : koniec
 @enduml
