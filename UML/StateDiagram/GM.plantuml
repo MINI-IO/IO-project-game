@@ -1,0 +1,40 @@
+@startuml Diagram stanów GM
+skinparam shadowing false
+skinparam monochrome true
+hide empty description
+title Diagram stanu gry
+
+
+state "Pobieranie parametrów rozgrywki" as pro
+state "Oczekiwanie na Agentów" as ong
+
+
+state "Rozgrywka" as roz {
+    state "Oczekiwanie" as ocz
+    state "Obsługa wiadomości" as ow
+    state "Pauza" as pauza
+
+    [*] --> ocz
+    ocz --> ow : Przyjęcie\nwiadomości\nod\nagenta
+    ow --> ocz : Wysłanie\nodpowiedzi\ndo\nagenta
+    ocz --> pauza : Zapauzowanie\nrozgrywki\nprzez\nużytkownika
+    pauza --> ocz : Wznowienie rozgrywki\nprzez użytkownika
+    ow --> [*] : Spełnienie warunku\nwygranej
+    ocz --> [*] : Zakończenie gry\nprzez użytkownika
+    pauza --> [*] : Zakończenie gry\nprzez użytkownika
+}
+
+state "Wyświetlenie statystyk" as ws
+
+[*] --> pro : uruchomienie gry
+pro : entry/ pobierz parametry
+pro : exit/ ustaw parametry
+
+pro -> ong : ustawienie parametrów
+ong --> ong : dołączenie gracza
+
+ong --> roz : Rozpoczęcie rozgrywki przez użytkownika
+roz --> ws
+ws --> [*] : Zamknięcie aplikacji
+
+@enduml

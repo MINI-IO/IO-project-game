@@ -8,7 +8,7 @@
 
 \subsubsection{Player}
 \paragraph{Zmienne}
-\begin{itemize}
+\begin{methods}
     \method[private Int]{id}{Identyfikator gracza}
     \method[private Int]{messageCorellationId}{Id nadane graczowi przez serwer komunikacyjny, służy do odsyłania wiadomości}
     \method[private Team]{team}{Drużyna,w której jest gracz}
@@ -17,10 +17,10 @@
     \method[private AbstractField]{position}{Pozycja gracza na planszy}
     \method[private Time]{LockedTill}{Czas do kiedy gracz jest zablokowany}
     \method[private MessageSenderService]{messageService}{Obiekt interface'u odpowiedzialnego za komunikację}
-\end{itemize}
+\end{methods}
 
 \paragraph{Metody}
-\begin{itemize}
+\begin{methods}
     \method[public bool]{tryLock(TimeSpan)}{Metoda sprawdza czy gracz jest zablokowany, jeśli jest zwraca false, jeśli nie jest zakłada nową blokadę czasową na czas podany w argumencie, wykorzystywana do sprawdzania czy Agent jest w trakcie odczekiwania kary czasowej}
     \method[public void]{Move(Field)}{Metoda poruszająca gracza na wskazane pole. Korzysta z metody obiektu postion. Wysyła agentowi informację przez MessageSenderService.}
     \method[public void]{DestroyHolding()}{Metoda niszcząca trzymany fragment.}
@@ -29,12 +29,12 @@
     \method[public bool]{Put()}{Metoda odkładająca fragment w polu, w którym się znajdujemy. Korzysta z metody obiektu postion. Wysyła agentowi informację przez MessageSenderService. Zwraca true jeśli drużynie należy przyznać punkt}
     \method{SetHolding()}{Metoda przypisuje graczowi fragment.}
     \method[{internal int[2]}]{GetPosition()}{Metoda pobiera współrzędne gracza.}
-\end{itemize}
+\end{methods}
 
 
 \subsubsection{Configuration}
 \paragraph{Zmienne}
-\begin{itemize}
+\begin{methods}
     \method[public readonly TimeSpan]{movePenalty}{Czas do odczekania po wykonanym ruchu.}
     \method[public readonly TimeSpan]{askPenalty}{Czas do odczekania po odpytaniu innego gracza.}
     \method[public readonly TimeSpan]{discoveryPenalty}{Czas do odczekania po wykonanym akcji odkrycia.}
@@ -44,94 +44,94 @@
     \method[public readonly Int]{x}{Szerokość planszy.}
     \method[public readonly Int]{y}{Wysokość planszy.}
     \method[public readonly Int]{numberOfGoals}{Liczba celow w grze}
-\end{itemize}
+\end{methods}
 
 \subsubsection{AbstractField}
 \paragraph{Zmienne}
-\begin{itemize}
+\begin{methods}
     \method[private readonly Int]{x}{Współrzędna x pola na planszy.}
     \method[private readonly Int]{y}{Współrzędna y pola na planszy.}
     \method[private Player]{WhosHere}{Referencja na obiekt gracza, który znajduje się na polu.}
     \method[private AbstractPiece]{pieces}{Lista fragmentów położonych na tym polu.}
-\end{itemize}
+\end{methods}
 
 \paragraph{Metody}
-\begin{itemize}
+\begin{methods}
     \method[public void]{Leave(Player)}{Metoda wywoływana gdy gracz opuszcza pole. Usuwa referencję na gracza w obiekcie.}
     \method[public void]{PickUp(Player)}{Metoda abstrakcyjna, która podnosi fragment z planszy i przypisuje go do gracza. Wywoływana jest na wejście gracza  (przemieszczenie się gracza do tego pola) do danego pola}
     \method[public bool]{Put(Piece)}{Metoda abstrakcyjna. Wykorzystywana przez Put(AbstractField) z NormalPiece na zasadzie \textbf{wzorca projektowego odwiedzający}.}
-        \method[public bool]{PutSham(Piece)}{Metoda abstrakcyjna. Wykorzystywana przez Put(AbstractField) z ShamPiece na zasadzie \textbf{wzorca projektowego odwiedzający}. Zwraca true jeśli dane pole było bramkowe}
+    \method[public bool]{PutSham(Piece)}{Metoda abstrakcyjna. Wykorzystywana przez Put(AbstractField) z ShamPiece na zasadzie \textbf{wzorca projektowego odwiedzający}. Zwraca true jeśli dane pole było bramkowe}
     \method[public bool]{MoveHere(Player)}{Metoda przesuwa gracza na pole.}
     \method[public bool]{ContainsPieces()}{Metoda zwraca informację czy pole zawiera fragment.}
     \method[{public int[2]}]{GetPosition()}{Metoda zwraca współrzędne pola.}
-\end{itemize}
+\end{methods}
 
 \paragraph{NonGoalField : AbstractField}
     Klasa reprezentująca pole bramkowe nie będące celem.
-    \begin{itemize}
+    \begin{methods}
         \method[public bool]{PickUp(Player)}{Nie można podnosić fragmentów z pola bramkowego}
         \method[public bool]{Put(Piece)}{Odłożenie nie przyznaje punktów}
         \method[public bool]{PutSham(Piece)}{Odłożenie fragmentu fikcyjneg na dane pole, zwraca true}
-    \end{itemize}
+    \end{methods}
 \paragraph{GoalField : AbstractField}
 Klasa reprezentująca pole bramkowe będące celem.
-\begin{itemize}
+\begin{methods}
     \method[public bool]{PickUp(Player)}{Nie można podnosić fragmentów z pola bramkowego}
     \method[public bool]{Put(Piece)}{Odłożenie przyznaje punkty, jeśli wcześniej na te pole nie był odłożony inny fragment}    \method[public void]{PutSham(Piece)}{Odłożenie fragmentu fikcyjneg na dane pole}
     \method[public bool]{PutSham(Piece)}{Odłożenie fragmentu fikcyjneg na dane pole, zwraca true}
 
-\end{itemize}
+\end{methods}
 \paragraph{TaskField : AbstractField}
 Klasa reprezentująca pole zadań.
-\begin{itemize}
+\begin{methods}
     \method[public bool]{PickUp(Player)}{Jeśli na danym polu jest fragment, Player podnosi go}
     \method[public bool]{Put(Piece)}{Odłożenie fragmentu na dane pole}
     \method[public bool]{PutSham(Piece)}{Odłożenie fragmentu fikcyjneg na dane pole, zwraca false}
-\end{itemize}
+\end{methods}
 \subsubsection{AbstractPiece}
 \paragraph{Metody}
-\begin{itemize}
+\begin{methods}
     \method[public bool]{CheckForSham()}{Metoda abstrakcyjna sprawdzająca czy fragment jest fragmentem fikcyjnym.}
     \method[public int]{Put(AbstractField)}{Metoda abstrakcyjna odkładająca fragment na pole. Wykorzystuje Put(Piece) z AbstractField na zasadzie \textbf{wzorca projektowego odwiedzający}}
-\end{itemize}
+\end{methods}
 
 \subsubsection{ShamPiece : AbstractPiece}
 \paragraph{Metody}
-\begin{itemize}
+\begin{methods}
     \method[public bool]{CheckForSham()}{Metoda zwraca true.}
     \method[public int]{Put(AbstractField)}{Implementacja odwiedzającego, wywołuje PutSham() z AbstractField, jeśli dane pole było bramkowe przekazuje tę informację do gracza}
-\end{itemize}
+\end{methods}
 
 \subsubsection{NormalPiece : AbstractPiece}
 \paragraph{Metody}
-\begin{itemize}
+\begin{methods}
     \method[public bool]{CheckForSham()}{Metoda zwraca false.}
     \method[public int]{Put(AbstractField)}{Implementacja odwiedzającego, wywołuje Put() z AbstractField, przekazuje informację czy przyznać punkty graczowi}
-\end{itemize}
+\end{methods}
 
 \subsubsection{Interface Message SenderService}
 \paragraph{Metody}
-\begin{itemize}
+\begin{methods}
     \method[public void]{SendMessage()}{Wysłanie wiadomości do serwera komunikacyjnego. Używana przez Playera do wysyłania wiadomości}
-\end{itemize}
+\end{methods}
 
 \subsubsection{GM}
 \paragraph{Zmienne}
-\begin{itemize}
+\begin{methods}
     \method[private readonly Dictionary<int,Player>]{players}{Słownik mapujący id gracza z wiadomości na obiekt}
     \method[{private readonly Field[][]}]{map}{Faktyczny stan planszy.}
     \method[private Set<(int,int)>]{LegalKnowleadgeReplies[2]}{Zbiór par id które oznaczają, dana odpowiedź z wymianą informacjie jest legalna, bo była poprzedzona zapytaniem.}
     \method[private Configuration]{conf}{Obiekt parametrów rozgrywki.}
-\end{itemize}
+\end{methods}
 
 \paragraph{Metody}
-\begin{itemize}
+\begin{methods}
     \method[public void]{AcceptMessage()}{Metoda służy do obsługi wiadomości, powinna być wywoływana przez API obsługujące komunikację}
     \method[private]{Discover(Field)}{Metoda oblicza wynik akcji discovery}
     \method[private void]{GeneratePiece()}{Metoda generuje i rozmieszcza fragmenty na planszy.}
     \method[private void]{ForwardKnowleadgeQuestion()}{Metoda przekazuje prośbę o informację do właściwego gracza.}
     \method[private void]{ForwardKnowleadgeReply()}{Metoda przekazuje odpowiedź na zapytanie do właściwego gracza, jeśli odpowiedź jest legalna, czyli jeśli dana odpowiedź była poprzedzona zapytaniem.}
-\end{itemize}
+\end{methods}
 
 \subsubsection{Enum Team}
 \begin{itemize}

@@ -6,31 +6,31 @@
 
 \subsubsection{Klasa Communicator}
 \paragraph{Zmienne}
-\begin{itemize}
+\begin{methods}
     \method[private Dictionary<int, Descriptor>]{correlation}{Słownik mapujący wewnętrzne id korelacji gry na deskryptory do wysłania wiadomości wykorzystywane przez API do komunikacji}
     \method[private Descriptor]{GMDescriptor}{Deskryptor używany do wysyłania wiadomości do GM}
     \method[private ISender]{senderService}{Obiekt wykorzystywany do wysyłania wiadomości}
-\end{itemize}
+\end{methods}
 \paragraph{Metody}
-\begin{itemize}
+\begin{methods}
     \method{SendMessageToAgent(GMMessage)}{Metoda wysyłająca odpowiednią wiadomość wiadomość do Agenta. Na podstawie id z wiadomości znajduje odpowiedni deskryptor i wysyła na niego payload za pomocą ISender. Wywoływana przez API do komunikacji na zdarzenie otrzymania wiadomości od Agenta}
     \method{SendMessageToGM(AgentMessage)}{Metoda wysyłająca odpowiednią wiadomość wiadomość do Game Mastera. Wywoływana przez API do komunikacji na zdarzenie otrzymania wiadomości od GM}
-\end{itemize}
+\end{methods}
 
 \subsubsection{Klasa GMMessage}
-\begin{itemize}
+\begin{methods}
     \method[public int]{id}{Identyfikator agenta do którego przesyłana jest wiadomość.}
 	\method[public string]{payload}{Treść wiadomości przesyłana do agenta w formacie JSON.}
-\end{itemize}
+\end{methods}
 
 \subsubsection{Klasa AgentMessage}
-\begin{itemize}
+\begin{methods}
 	\method[public string]{payload}{Treść wiadomości przesyłana do Game Mastera w formacie JSON.}
-\end{itemize}
+\end{methods}
 
 \subsubsection{Interfejs ISender}
-\begin{itemize}
+\begin{methods}
     \method[public void]{SendMessage()}{Metoda odpowiedzialna za wysłanie za pomocą API do komunikacji wiadomości do odpowiedniego Agenta lub GM w zależności od paramterów wywołania }
-\end{itemize}
+\end{methods}
 
 \end{document}
