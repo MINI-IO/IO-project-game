@@ -52,7 +52,7 @@
         },
         "penalties": {
             "type":"object",
-            "required":["move","checkForScham","discovery","destroyPiece","putPiece","informationExchange"],
+            "required":["move","checkForSham","discovery","destroyPiece","putPiece","informationExchange"],
             "properties": {
                 "move": {"type":"string"},
                 "checkForScham": {"type":"string"},

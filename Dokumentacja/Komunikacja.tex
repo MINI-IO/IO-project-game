@@ -1,0 +1,24 @@
+\documentclass[Dokumentacja.tex]{subfiles}
+
+\begin{document}
+\section{Komunikacja}
+Komunikacja odbywa się za pośrednictwem protokołu TCP. Wiadomości wysyłane są w formacie JSON.
+Wiadomości wysyłane przez GM i Agenty opakowywane są w adapter opisujący kontekst wysyłanej wiadomości.
+Pole \textit{agentID} uzupełniane jest przez serwer na podstawie . Po nawiązaniu połączenia przez Agenta z serwerem,
+serwer nadaje mu unikane \textit{agentID} (liczbę całkowitą), które będzie służyło do korelacji oraz do będzie
+wykorzystywane przez GM w logice gry. Te samo \textit{agentID} wysyłane jest do Agenta w odpowiedzi na prośbę o dołączenie
+oraz w wiadomości o rozpoczęciu rozgrywki.
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/messageWrapper.json}
+
+\subsection{Wiadomości Agenta}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/checkForScham.json}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/destroyPiece.json}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/discovery.json}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/infomationExchangeRespond.json}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/informationExchangeAsk.json}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/joinGame.json}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/makeMove.json}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/pickPiece.json}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/putPiece.json}
+
+\end{document}
