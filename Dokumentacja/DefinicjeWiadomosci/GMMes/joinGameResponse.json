@@ -1,13 +1,13 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema",
     "type": "object",
-    "required":["agentID", "payload"],
+    "required":["accepted"],
     "properties": {
+        "accepted": {
+            "type":"boolean"
+        },
         "agentID": {
             "type":"integer"
-        },
-        "payload": {
-            "type":"object"
         }
     }
 }

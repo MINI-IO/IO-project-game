@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema",
     "type": "object",
-    "required":["messageID", "timeSent", "payload"],
+    "required":["messageID", "timeSent"],
     "properties": {
         "messageID": {
             "type":"integer"
@@ -9,6 +9,13 @@
         "timeSent": {
             "type":"string",
             "format":"date-time"
+        },
+        "waitUntil": {
+            "type":"string",
+            "format":"date-time"
+        },
+        "agentID": {
+            "type":"integer"
         },
         "payload": {
             "type":"object"

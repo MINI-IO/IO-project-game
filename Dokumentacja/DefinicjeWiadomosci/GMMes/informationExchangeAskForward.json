@@ -1,12 +1,12 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema",
     "type": "object",
-    "required":["askingID","lider","teamId"],
+    "required":["askingID","leader","teamId"],
     "properties": {
         "askingID": {
             "type": "integer"
         },
-        "lider": {
+        "leader": {
             "type": "boolean"
         },
         "teamId": {
