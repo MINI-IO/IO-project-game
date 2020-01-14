@@ -1,11 +1,11 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema",
     "type": "object",
+    "required":["teamId"],
     "properties": {
         "teamId": {
-            "type":"integer",
-            "minimum": 0,
-            "maximum": 1
+            "type":"string",
+            "enum": ["red","blue"]
         }
     }
 }
