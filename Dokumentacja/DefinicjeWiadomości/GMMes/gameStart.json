@@ -1,26 +1,29 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema",
     "type": "object",
+    "required":["agentID","alliesIDs","enemiesIDs","teamId","boardSize","goalAreaSize","numberOfPlayers","numberOfPieces","numberOfGoals","penalties","shamPieceProbability","position", "leaderID"],
     "properties": {
         "agentID": {
-            "type":"number"
+            "type":"integer"
         },
         "alliesIDs": {
             "type":"array",
             "items": {
-                "type": "number"
+                "type": "integer"
             }
+        },
+        "leaderID": {
+            "type":"integer"
         },
         "enemiesIDs": {
             "type":"array",
             "items": {
-                "type": "number"
+                "type": "integer"
             }
         },
         "teamId": {
-            "type":"integer",
-            "minimum": 0,
-            "maximum": 1
+            "type":"string",
+            "enum": ["red","blue"]
         },
         "boardSize": {
             "type":"object",
@@ -31,7 +34,7 @@
             }
         },
         "goalAreaSize": {
-            "type":"number"
+            "type":"integer"
         },
         "numberOfPlayers": {
             "type":"object",
@@ -49,6 +52,7 @@
         },
         "penalties": {
             "type":"object",
+            "required":["move","checkForScham","discovery","destroyPiece","putPiece","informationExchange"],
             "properties": {
                 "move": {"type":"string"},
                 "checkForScham": {"type":"string"},
