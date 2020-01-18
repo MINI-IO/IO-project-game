@@ -1,0 +1,27 @@
+@startuml
+skinparam shadowing false
+skinparam monochrome true
+skinparam sequenceGroupBorderThickness 0.5
+(*) --> "Ustawienie portów do połączeń z GM oraz agentami"
+"Ustawienie portów do połączeń z GM oraz agentami" --> "Ustawienie limitu połączeń"
+"Ustawienie limitu połączeń" --> "Oczekiwanie na połączenie z GM"
+"Oczekiwanie na połączenie z GM" --> "Oczekiwanie na graczy"
+"Oczekiwanie na graczy" --> "Zmapowanie deskryptorów graczy do id w grze"
+"Zmapowanie deskryptorów graczy do id w grze" --> ===B1===
+--> "Czekaj na wiadomość od GM"
+--> "Wyślij wiadomość do agenta"
+if "Sygnał wyłączenia serwera" then
+        -->[true] (*)
+else
+        -->[false] "Czekaj na wiadomość od GM"
+endif
+
+===B1=== --> "Czekaj na wiadomość od agenta"
+--> "Wyślij wiadomość do GM"
+if "Sygnał wyłączenia serwera" then
+        -->[true] (*)
+else
+        -->[false] "Czekaj na wiadomość od agenta"
+endif
+
+@enduml
