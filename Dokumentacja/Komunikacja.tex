@@ -1,0 +1,147 @@
+\documentclass[Dokumentacja.tex]{subfiles}
+
+\begin{document}
+\section{Komunikacja}
+Komunikacja odbywa się za pośrednictwem protokołu TCP. Utrata połączenia z którymkolwiek modułem skutkuje w każdym z modułów
+poinformowaniem użytkownika i zakończeniem działania. Wiadomości wysyłane są w formacie JSON.
+Wiadomości wysyłane przez GM i Agenty opakowywane są w adapter opisujący kontekst wysyłanej wiadomości.
+Pole \textit{agentID} uzupełniane jest przez serwer na podstawie. Po nawiązaniu połączenia przez Agenta z serwerem,
+serwer nadaje mu unikane \textit{agentID} (liczbę całkowitą), które będzie służyło do korelacji oraz do będzie
+wykorzystywane przez GM w logice gry. Te samo \textit{agentID} wysyłane jest do Agenta w odpowiedzi na prośbę o dołączenie
+oraz w wiadomości o rozpoczęciu rozgrywki.
+
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/messageWrapper.json}
+
+\subsection{Wiadomości Agenta}
+\subsubsection{Zapytanie czy trzymany fragment jest fikcyjny}
+\textit{Payload} pusty
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/checkForScham.json}
+
+\subsubsection{Zapytanie o zniszczenie fragmentu}
+\textit{Payload} pusty
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/destroyPiece.json}
+
+\subsubsection{Zapytanie o akcję odkrycia}
+\textit{Payload} pusty
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/discovery.json}
+
+\subsubsection{Odpowiedź na wymianę informacji}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/infomationExchangeRespond.json}
+
+\subsubsection{Zapytanie o wymianę informacji}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/informationExchangeAsk.json}
+
+\subsubsection{Zapytanie o dołączenie do rozgrywki}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/joinGame.json}
+
+\subsubsection{Zapytanie o ruch}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/makeMove.json}
+
+\subsubsection{Zapytanie o podniesienie fragmentu}
+\textit{Payload} pusty
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/pickPiece.json}
+
+\subsubsection{Zapytanie o położenie fragmentu}
+\textit{Payload} pusty
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/putPiece.json}
+
+
+\subsection{Wiadomości GM}
+\subsection{Odpowiedź na sprawdzenie fikcyjności}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/GMMes/checkForSchamResponse.json}
+
+\subsection{Odpowiedź na prośbę o zniszczenie fragmentu}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/GMMes/destroyPieceResponse.json}
+
+\subsection{Odpowiedź na akcję discovery}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/GMMes/discoveryResponse.json}
+
+\subsection{Wiadomość o zakończeniu gry}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/GMMes/gameEnd.json}
+
+\subsection{Wiadomość o rozpoczęciu gry}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/GMMes/gameStart.json}
+
+\subsection{Wiadomość przekazująca zapytanie o wymianę informacji do adresata}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/GMMes/informationExchangeAskForward.json}
+
+\subsection{Odpowiedź na zapytanie o dołączenie}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/GMMes/joinGameResponse.json}
+
+\subsection{Odpowiedź na zapytanie o ruch}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/GMMes/makeMoveResponse.json}
+
+\subsection{Odpowiedź na podniesienie kawałka}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/GMMes/pickPieceResponse.json}
+
+\subsection{Odpowiedź na położenie kawałka}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/GMMes/putPieceResponse.json}
+
+\subsection{Wiadomości błędów}
+
+\subsection{Błędny ruch}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/Errors/invalidMove.json}
+
+\subsection{Błędne odłożenie kawałka}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/Errors/pickPiece.json}
+
+\subsection{Błędne położenie kawałka}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/Errors/putPieceError.json}
+
+\subsection{Nie odczekanie kary}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/Errors/timePenaltyError.json}
+
+\subsection{Niezdefiniowany błąd}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/Errors/undefinedErrorMessage.json}
+
+\subsection{Id wiadomości}
+
+\subsubsection{Wiadomości Agenta}
+\begin{tabular}{ |p{1cm}|p{12cm}| } 
+ \hline
+ Id & Nazwa wiadomości \\
+ \hline
+ 001 & Zapytanie czy trzymany fragment jest fikcyjny \\ 
+ 002 & Zapytanie o zniszczenie fragmentu \\ 
+ 003 & Zapytanie o akcję odkrycia \\ 
+ 004 & Odpowiedź na wymianę informacji \\ 
+ 005 & Zapytanie o wymianę informacji \\ 
+ 006 & Zapytanie o dołączenie do rozgrywki \\ 
+ 007 & Zapytanie o ruch \\ 
+ 008 & Zapytanie o podniesienie fragmentu \\ 
+ 009 & Zapytanie o położenie fragmentu \\ 
+ \hline
+\end{tabular}
+
+\subsubsection{Wiadomości GM}
+\begin{tabular}{ |p{1cm}|p{12cm}| } 
+ \hline
+ Id & Nazwa wiadomości \\
+ \hline
+ 101 & Odpowiedź na sprawdzenie fikcyjności \\
+ 102 & Odpowiedź na prośbę o zniszczenie fragmentu \\
+ 103 & Odpowiedź na akcję discovery \\
+ 104 & Wiadomość o zakończeniu gry \\
+ 105 & Wiadomość o rozpoczęciu gry \\
+ 106 & Wiadomość przekazująca zapytanie o wymianę informacji do adresata \\
+ 107 & Odpowiedź na zapytanie o dołączenie \\
+ 108 & Odpowiedź na zapytanie o ruch \\
+ 109 & Odpowiedź na podniesienie kawałka \\
+ 110 & Odpowiedź na położenie kawałka \\
+ \hline
+\end{tabular}
+
+\subsubsection{Wiadomości błędów}
+\begin{tabular}{ |p{1cm}|p{12cm}| } 
+ \hline
+ Id & Nazwa wiadomości \\
+ \hline
+ 901 & Błędny ruch \\
+ 902 & Błędne odłożenie kawałka \\
+ 903 & Błędne położenie kawałka \\
+ 904 & Nie odczekanie kary \\
+ 905 & Niezdefiniowany błąd \\
+ \hline
+\end{tabular}
+
+\end{document}

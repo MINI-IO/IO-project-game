@@ -1,0 +1,30 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "type": "object",
+    "required":["respondToID","distances","redTeamGoalAreaInformations","blueTeamGoalAreaInformations"],
+    "properties": {
+        "respondToID": {
+            "type":"integer"
+        },
+        "distances": {
+            "type":"array",
+            "items": {
+                "type": "number"
+            }
+        },
+        "redTeamGoalAreaInformations": {
+            "type":"array",
+            "items": {
+                "type": "string",
+                "enum": ["IDK", "N", "G"]
+            }
+        },
+        "blueTeamGoalAreaInformations": {
+            "type":"array",
+            "items": {
+                "type": "string",
+                "enum": ["IDK", "N", "G"]
+            }
+        }
+    }
+}

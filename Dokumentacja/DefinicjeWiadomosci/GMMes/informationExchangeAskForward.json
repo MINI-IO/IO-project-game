@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "type": "object",
+    "required":["askingID","leader","teamId"],
+    "properties": {
+        "askingID": {
+            "type": "integer"
+        },
+        "leader": {
+            "type": "boolean"
+        },
+        "teamId": {
+            "type":"string",
+            "enum": ["red","blue"]
+        }
+    }
+}

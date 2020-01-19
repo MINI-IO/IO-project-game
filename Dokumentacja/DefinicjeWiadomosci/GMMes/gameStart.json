@@ -1,0 +1,77 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "type": "object",
+    "required":["agentID","alliesIDs","enemiesIDs","teamId","boardSize","goalAreaSize","numberOfPlayers","numberOfPieces","numberOfGoals","penalties","shamPieceProbability","position", "leaderID"],
+    "properties": {
+        "agentID": {
+            "type":"integer"
+        },
+        "alliesIDs": {
+            "type":"array",
+            "items": {
+                "type": "integer"
+            }
+        },
+        "leaderID": {
+            "type":"integer"
+        },
+        "enemiesIDs": {
+            "type":"array",
+            "items": {
+                "type": "integer"
+            }
+        },
+        "teamId": {
+            "type":"string",
+            "enum": ["red","blue"]
+        },
+        "boardSize": {
+            "type":"object",
+            "required":["x", "y"],
+            "properties": {
+                "x": {"type": "integer"},
+                "y": {"type": "integer"}
+            }
+        },
+        "goalAreaSize": {
+            "type":"integer"
+        },
+        "numberOfPlayers": {
+            "type":"object",
+            "required":["allies", "enemies"],
+            "properties": {
+                "allies": {"type":"integer"},
+                "enemies": {"type":"integer"}
+            }
+        },
+        "numberOfPieces": {
+            "type":"integer"
+        },
+        "numberOfGoals": {
+            "type":"integer"
+        },
+        "penalties": {
+            "type":"object",
+            "required":["move","checkForSham","discovery","destroyPiece","putPiece","informationExchange"],
+            "properties": {
+                "move": {"type":"string"},
+                "checkForScham": {"type":"string"},
+                "discovery": {"type":"string"},
+                "destroyPiece": {"type":"string"},
+                "putPiece": {"type":"string"},
+                "informationExchange": {"type":"string"}
+            }
+        },
+        "shamPieceProbability": {
+            "type":"number"
+        },
+        "position": {
+            "type":"object",
+            "required":["x", "y"],
+            "properties": {
+                "x": {"type": "integer"},
+                "y": {"type": "integer"}
+            }
+        }
+    }
+}
