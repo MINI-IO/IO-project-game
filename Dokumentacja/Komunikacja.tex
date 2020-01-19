@@ -21,7 +21,7 @@ oraz w wiadomości o rozpoczęciu rozgrywki.
 \textit{Payload} pusty
 \lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/destroyPiece.json}
 
-\subsubsection{Zapytanie zapytanie o akcję odkrycia}
+\subsubsection{Zapytanie o akcję odkrycia}
 \textit{Payload} pusty
 \lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/discovery.json}
 
@@ -41,7 +41,7 @@ oraz w wiadomości o rozpoczęciu rozgrywki.
 \textit{Payload} pusty
 \lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/pickPiece.json}
 
-\subsubsection{Zapytanie o położnei fragmentu}
+\subsubsection{Zapytanie o położenie fragmentu}
 \textit{Payload} pusty
 \lstinputlisting[language=json]{./DefinicjeWiadomosci/AgentMes/putPiece.json}
 
@@ -94,8 +94,54 @@ oraz w wiadomości o rozpoczęciu rozgrywki.
 \subsection{Niezdefiniowany błąd}
 \lstinputlisting[language=json]{./DefinicjeWiadomosci/Errors/undefinedErrorMessage.json}
 
+\subsection{Id wiadomości}
 
+\subsubsection{Wiadomości Agenta}
+\begin{tabular}{ |p{1cm}|p{12cm}| } 
+ \hline
+ Id & Nazwa wiadomości \\
+ \hline
+ 001 & Zapytanie czy trzymany fragment jest fikcyjny \\ 
+ 002 & Zapytanie o zniszczenie fragmentu \\ 
+ 003 & Zapytanie o akcję odkrycia \\ 
+ 004 & Odpowiedź na wymianę informacji \\ 
+ 005 & Zapytanie o wymianę informacji \\ 
+ 006 & Zapytanie o dołączenie do rozgrywki \\ 
+ 007 & Zapytanie o ruch \\ 
+ 008 & Zapytanie o podniesienie fragmentu \\ 
+ 009 & Zapytanie o położenie fragmentu \\ 
+ \hline
+\end{tabular}
 
+\subsubsection{Wiadomości GM}
+\begin{tabular}{ |p{1cm}|p{12cm}| } 
+ \hline
+ Id & Nazwa wiadomości \\
+ \hline
+ 101 & Odpowiedź na sprawdzenie fikcyjności \\
+ 102 & Odpowiedź na prośbę o zniszczenie fragmentu \\
+ 103 & Odpowiedź na akcję discovery \\
+ 104 & Wiadomość o zakończeniu gry \\
+ 105 & Wiadomość o rozpoczęciu gry \\
+ 106 & Wiadomość przekazująca zapytanie o wymianę informacji do adresata \\
+ 107 & Odpowiedź na zapytanie o dołączenie \\
+ 108 & Odpowiedź na zapytanie o ruch \\
+ 109 & Odpowiedź na podniesienie kawałka \\
+ 110 & Odpowiedź na położenie kawałka \\
+ \hline
+\end{tabular}
 
+\subsubsection{Wiadomości błędów}
+\begin{tabular}{ |p{1cm}|p{12cm}| } 
+ \hline
+ Id & Nazwa wiadomości \\
+ \hline
+ 901 & Błędny ruch \\
+ 902 & Błędne odłożenie kawałka \\
+ 903 & Błędne położenie kawałka \\
+ 904 & Nie odczekanie kary \\
+ 905 & Niezdefiniowany błąd \\
+ \hline
+\end{tabular}
 
 \end{document}
