@@ -16,7 +16,8 @@
 \usepackage{CustomCommands}
 \usepackage{svg}
 \usepackage{float}
-
+\usepackage{hyperref}
+\usepackage{pdflscape}
 
 \title{IO - The Project Game}
 \author{Bartosz Chrostowski
@@ -39,6 +40,8 @@
         \newpage
         \section{Diagram systemu}
         System złożony jest z 3 modułów komunikujących się ze sobą przez TCP.
+        W celu uniknięcia skomplikowanej logiki buforowania wiadomości, każdy moduł kończy pracę na niepowodzenie komunikacji,
+        System należy odpalać w kolejności CS -> GM -> Agenty, inna kolejność uruchamiania może powodować zamknięcie całego systemu kaskadowo.
         \includeDiagram[width=\textwidth]{resources/systemArchitecture.pdf}{Diagram systemu}
 \end{samepage}
 

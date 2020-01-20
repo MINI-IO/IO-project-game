@@ -20,6 +20,7 @@ Plansza podzielona jest na 3 rozłączne obszary, kolejno: pole bramkowe drużyn
 
 Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny. Pola projektu są ukryte, Agenci w trakcie rozgrywki mogą je odkryć poprzez akcję sprawdzenia wybranego pola lub położenie na niego fragmentu.
 
+\includeDiagram[width=0.5\textwidth]{resources/game.png}{Mapa planszy}
 \subsection{Założenia ogólne}
 \begin{itemize}
     \item Są dwie drużyny
@@ -35,6 +36,13 @@ Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny.
     \item Projekt do ułożenia są dla każdej drużyny identyczne
     \item Warunkiem wygranej jest zakrycie wszystkich celów, czyli zdobycie tylu punktów ile jest celów
     \item Akcje agentów wykonywane są asynchronicznie
+\end{itemize}
+\subsection{Kary czasowe}
+\begin{itemize}
+    \item Każda akcja (oraz zapytanie o wymianę informacji i odpowiedź na wymianę informacji)
+    wiąże się z koniecznością odczekania czasu przed kolejną akcją
+    \item W przypadku wysłania zapytania przed upłynięciem kary czasowej, jest ono ignorowane przez GM i wysyłany jest stosowny komunikat błędu
+    \item Kary czasowe ustalane są przed rozgrywką
 \end{itemize}
 \subsection{Poruszanie}
 \begin{itemize}

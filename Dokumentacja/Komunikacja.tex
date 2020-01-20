@@ -2,6 +2,8 @@
 
 \begin{document}
 \section{Komunikacja}
+\label{sec:komunikacja}
+
 Komunikacja odbywa się za pośrednictwem protokołu TCP. Utrata połączenia z którymkolwiek modułem skutkuje w każdym z modułów
 poinformowaniem użytkownika i zakończeniem działania. Wiadomości wysyłane są w formacie JSON.
 Wiadomości wysyłane przez GM i Agenty opakowywane są w adapter opisujący kontekst wysyłanej wiadomości.
@@ -97,24 +99,24 @@ oraz w wiadomości o rozpoczęciu rozgrywki.
 \subsection{Id wiadomości}
 
 \subsubsection{Wiadomości Agenta}
-\begin{tabular}{ |p{1cm}|p{12cm}| } 
+\begin{tabular}{ |p{1cm}|p{12cm}| }
  \hline
  Id & Nazwa wiadomości \\
  \hline
- 001 & Zapytanie czy trzymany fragment jest fikcyjny \\ 
- 002 & Zapytanie o zniszczenie fragmentu \\ 
- 003 & Zapytanie o akcję odkrycia \\ 
- 004 & Odpowiedź na wymianę informacji \\ 
- 005 & Zapytanie o wymianę informacji \\ 
- 006 & Zapytanie o dołączenie do rozgrywki \\ 
- 007 & Zapytanie o ruch \\ 
- 008 & Zapytanie o podniesienie fragmentu \\ 
- 009 & Zapytanie o położenie fragmentu \\ 
+ 001 & Zapytanie czy trzymany fragment jest fikcyjny \\
+ 002 & Zapytanie o zniszczenie fragmentu \\
+ 003 & Zapytanie o akcję odkrycia \\
+ 004 & Odpowiedź na wymianę informacji \\
+ 005 & Zapytanie o wymianę informacji \\
+ 006 & Zapytanie o dołączenie do rozgrywki \\
+ 007 & Zapytanie o ruch \\
+ 008 & Zapytanie o podniesienie fragmentu \\
+ 009 & Zapytanie o położenie fragmentu \\
  \hline
 \end{tabular}
 
 \subsubsection{Wiadomości GM}
-\begin{tabular}{ |p{1cm}|p{12cm}| } 
+\begin{tabular}{ |p{1cm}|p{12cm}| }
  \hline
  Id & Nazwa wiadomości \\
  \hline
@@ -132,7 +134,7 @@ oraz w wiadomości o rozpoczęciu rozgrywki.
 \end{tabular}
 
 \subsubsection{Wiadomości błędów}
-\begin{tabular}{ |p{1cm}|p{12cm}| } 
+\begin{tabular}{ |p{1cm}|p{12cm}| }
  \hline
  Id & Nazwa wiadomości \\
  \hline
