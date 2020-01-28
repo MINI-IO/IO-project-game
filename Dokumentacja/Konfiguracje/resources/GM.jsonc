@@ -1,0 +1,20 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "type": "object",
+    "required":["CsIP", "CsPort", "teamID"],
+    "properties": {
+        "CsIP": { "type": "integer" },
+        "CsPort": { "type": "integer" },
+        "movePenalty": {"type": "integer" },
+        "askPenalty": {"type": "integer" },
+        "discoveryPenalty": {"type": "integer" },
+        "putPenalty": {"type": "integer" },
+        "checkForShamPenalty": {"type": "integer" },
+        "responsePenalty": {"type": "integer" },
+        "boardX": { "type": "integer" },
+        "boardY": { "type": "integer" },
+        "goalAreaHight": { "type": "integer" },
+        "numberOfGoals": { "type": "integer" },
+        "numberOfPieces": { "type": "integer" }
+    }
+}
