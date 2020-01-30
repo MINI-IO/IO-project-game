@@ -1,0 +1,20 @@
+\documentclass[./../Dokumentacja.tex]{subfiles}
+
+\begin{document}
+\section{Konfiguracje}
+\label{sec:Konfiguracje}
+\subsection{Serwer Komunikacyjny}
+Konfiguracja Serwera Komunikacyjnego pobierana jest z pliku konfiguracyjnego w postaci json,
+bądź jako parametry wywołania programu
+\lstinputlisting[language=json]{./resources/CS.jsonc}
+\subsection{Agent}
+Parametry pobierane są z pliku konfiguracyjnego w postaci, w przypadku gdy taki nie istnieje
+CLI odpytuje użytkownika o wprowadzenie potrzebnych parametrów
+\lstinputlisting[language=json]{./resources/Agent.jsonc}
+\subsection{GM}
+GM zgodnie z założeniami posiada GUI, parametry konfiguracyjne są wybierane przez użytkownika w
+oknie ustawień przed rozpoczęciem rozgrywki, domyślne wartości uzupełniane sa na podstawie pliku
+konfiguracyjnego w postaci json
+\lstinputlisting[language=json]{./resources/GM.jsonc}
+
+\end{document}

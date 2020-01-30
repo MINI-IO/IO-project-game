@@ -1,0 +1,37 @@
+\documentclass[Dokumentacja.tex]{subfiles}
+
+\begin{document}
+\section{Sytuacje wyjątkowe}
+\subsection{}
+\subsection{Utrata połączenia}
+W przypadku utraty połączenia z innym modułem lub błędem wysłania wiadomości nadawca powinien poinformować użytkownika
+oraz zakończyć działanie. Rozwiązanie te powoduje kaskadowe zakończenie działania całego systemu.
+\subsection{Błąd modułu}
+W przypadku gdy moduł napotka nieobsługiwany błąd wewnętrzny niezwiązany z rozgrywką powinien poinformować użytkownika
+oraz zakończyć działanie. Tym samym zakończy to kaskadowo działanie całego systemu.
+
+\subsection{Reliability}
+\begin{itemize}
+    \item system powinien być niewrażliwy na ewentualne odłączenie się innych modułów,
+    wykryć takie zachowanie i odpowiednio zareagować,
+    \item system powinien być odporny na przesyłanie do poszczególnych modułów niepoprawnych wiadomości,
+    \item serwer komunikacyjny powinien zapisywać logi z niepoprawnymi wiadomościami.
+\end{itemize}
+
+\subsection{Performance}
+\begin{itemize}
+    \item Instalując moduł Game Mastera i serwera komunikacyjnego na przeciętnym laptopie system powinien obsłużyć około 40 agentów,
+    a wielkość planszy powinna mieć pomijalny wpływ na wydajność gry,
+    \item skalowalność systemu powinna zależeć od ilości wątków procesora ze względu na asynchroniczny charakter pracy modułów
+    Game Mastera i serwera komunikacyjnego.
+\end{itemize}
+
+\subsection{Supportability}
+\begin{itemize}
+    \item system powinien mieć domyślne ustawienia, które zostają każdorazowo nadpisane przez odpowiednie pliki konfiguracyjne,
+    \item system powinien działać w sieciach wspierających protokół TCP/IP,
+    \item system powinien być aplikacją typu portable, czyli taką do którą można uruchomić bez instalacji,
+    \item system powinien być napisany możliwe przenośnie, to znaczy maksymalnie ułatwiając jego przeniesie na inny system operacyjny.
+\end{itemize}
+
+\end{document}
