@@ -69,13 +69,13 @@
     \begin{methods}
         \method[public bool]{PickUp(Player)}{Nie można podnosić fragmentów z pola bramkowego}
         \method[public bool]{Put(Piece)}{Odłożenie nie przyznaje punktów}
-        \method[public bool]{PutSham(Piece)}{Odłożenie fragmentu fikcyjneg na dane pole, zwraca true}
+        \method[public bool]{PutSham(Piece)}{Odłożenie fragmentu fikcyjneg na dane pole, zwraca false}
     \end{methods}
 \paragraph{GoalField : AbstractField}
 Klasa reprezentująca pole bramkowe będące celem.
 \begin{methods}
     \method[public bool]{PickUp(Player)}{Nie można podnosić fragmentów z pola bramkowego}
-    \method[public bool]{Put(Piece)}{Odłożenie przyznaje punkty, jeśli wcześniej na te pole nie był odłożony inny fragment}    \method[public void]{PutSham(Piece)}{Odłożenie fragmentu fikcyjneg na dane pole}
+    \method[public bool]{Put(Piece)}{Odłożenie przyznaje punkty, jeśli wcześniej na te pole nie był odłożony inny fragment}
     \method[public bool]{PutSham(Piece)}{Odłożenie fragmentu fikcyjneg na dane pole, zwraca true}
 
 \end{methods}
