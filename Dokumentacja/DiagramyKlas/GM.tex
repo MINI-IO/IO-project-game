@@ -2,7 +2,7 @@
 
 \begin{document}
 \subsection{Moduł GM}
-\includeDiagram[width=0.90\textwidth]{resources/GM.eps}{Diagram klass modułu GM}
+\includeDiagram[width=0.90\textwidth]{resources/GM.eps}{Diagram klas modułu GM}
 
 \subsubsection{Player}
 \paragraph{Zmienne}
@@ -19,12 +19,12 @@
 
 \paragraph{Metody}
 \begin{methods}
-    \method[public bool]{tryLock(TimeSpan)}{Metoda sprawdza czy gracz jest zablokowany, jeśli jest zwraca false, jeśli nie jest zakłada nową blokadę czasową na czas podany w argumencie, wykorzystywana do sprawdzania czy Agent jest w trakcie odczekiwania kary czasowej}
+    \method[public bool]{tryLock(TimeSpan)}{Metoda sprawdza czy gracz jest zablokowany. Jeśli jest zwraca false, jeśli nie jest zakłada nową blokadę czasową na czas podany w argumencie. Wykorzystywana do sprawdzania czy Agent jest w trakcie odczekiwania kary czasowej.}
     \method[public void]{Move(Field)}{Metoda poruszająca gracza na wskazane pole. Korzysta z metody obiektu postion. Wysyła agentowi informację przez MessageSenderService.}
     \method[public void]{DestroyHolding()}{Metoda niszcząca trzymany fragment.}
     \method[public void]{CheckHolding()}{Metoda sprawdzająca czy trzymany fragment jest fragmentem fikcyjnym. Korzysta z metody obiektu holding. Wysyła agentowi informację przez MessageSenderService.}
     \method[public void]{Discover(GM)}{Metoda wykonująca akcję odkrycia. Wykorzystuje funkcję klasy GM. Wysyła agentowi informację przez MessageSenderService.}
-    \method[public bool]{Put()}{Metoda odkładająca fragment w polu, w którym się znajdujemy. Korzysta z metody obiektu postion. Wysyła agentowi informację przez MessageSenderService. Zwraca true jeśli drużynie należy przyznać punkt}
+    \method[public bool]{Put()}{Metoda odkładająca fragment w polu, w którym się znajdujemy. Korzysta z metody obiektu postion. Wysyła agentowi informację przez MessageSenderService. Zwraca true jeśli drużynie należy przyznać punkt.}
     \method{SetHolding()}{Metoda przypisuje graczowi fragment.}
     \method[{internal int[2]}]{GetPosition()}{Metoda pobiera współrzędne gracza.}
 \end{methods}
@@ -68,57 +68,56 @@
     Klasa reprezentująca pole bramkowe nie będące celem.
     \begin{methods}
         \method[public bool]{PickUp(Player)}{Nie można podnosić fragmentów z pola bramkowego}
-        \method[public bool]{Put(Piece)}{Odłożenie nie przyznaje punktów}
-        \method[public bool]{PutSham(Piece)}{Odłożenie fragmentu fikcyjneg na dane pole, zwraca false}
+        \method[public bool]{Put(Piece)}{Odłożenie nie przyznaje punktów.}
+        \method[public bool]{PutSham(Piece)}{Odłożenie fragmentu fikcyjneg na dane pole, zwraca false.}
     \end{methods}
 \paragraph{GoalField : AbstractField}
 Klasa reprezentująca pole bramkowe będące celem.
 \begin{methods}
     \method[public bool]{PickUp(Player)}{Nie można podnosić fragmentów z pola bramkowego}
     \method[public bool]{Put(Piece)}{Odłożenie przyznaje punkty, jeśli wcześniej na te pole nie był odłożony inny fragment}
-    \method[public bool]{PutSham(Piece)}{Odłożenie fragmentu fikcyjneg na dane pole, zwraca true}
-
+    \method[public bool]{PutSham(Piece)}{Odłożenie fragmentu fikcyjneg na dane pole, zwraca true.}
 \end{methods}
 \paragraph{TaskField : AbstractField}
 Klasa reprezentująca pole zadań.
 \begin{methods}
-    \method[public bool]{PickUp(Player)}{Jeśli na danym polu jest fragment, Player podnosi go}
-    \method[public bool]{Put(Piece)}{Odłożenie fragmentu na dane pole}
-    \method[public bool]{PutSham(Piece)}{Odłożenie fragmentu fikcyjneg na dane pole, zwraca false}
+    \method[public bool]{PickUp(Player)}{Jeśli na danym polu jest fragment, Player podnosi go.}
+    \method[public bool]{Put(Piece)}{Odłożenie fragmentu na dane pole.}
+    \method[public bool]{PutSham(Piece)}{Odłożenie fragmentu fikcyjnego na dane pole, zwraca false.}
 \end{methods}
 \subsubsection{AbstractPiece}
 \paragraph{Metody}
 \begin{methods}
     \method[public bool]{CheckForSham()}{Metoda abstrakcyjna sprawdzająca czy fragment jest fragmentem fikcyjnym.}
-    \method[public int]{Put(AbstractField)}{Metoda abstrakcyjna odkładająca fragment na pole. Wykorzystuje Put(Piece) z AbstractField na zasadzie \textbf{wzorca projektowego odwiedzający}}
+    \method[public int]{Put(AbstractField)}{Metoda abstrakcyjna odkładająca fragment na pole. Wykorzystuje Put(Piece) z AbstractField na zasadzie \textbf{wzorca projektowego odwiedzający}.}
 \end{methods}
 
 \subsubsection{ShamPiece : AbstractPiece}
 \paragraph{Metody}
 \begin{methods}
     \method[public bool]{CheckForSham()}{Metoda zwraca true.}
-    \method[public int]{Put(AbstractField)}{Implementacja odwiedzającego, wywołuje PutSham() z AbstractField, jeśli dane pole było bramkowe przekazuje tę informację do gracza}
+    \method[public int]{Put(AbstractField)}{Implementacja odwiedzającego, wywołuje PutSham() z AbstractField, jeśli dane pole było bramkowe przekazuje tę informację do gracza.}
 \end{methods}
 
 \subsubsection{NormalPiece : AbstractPiece}
 \paragraph{Metody}
 \begin{methods}
     \method[public bool]{CheckForSham()}{Metoda zwraca false.}
-    \method[public int]{Put(AbstractField)}{Implementacja odwiedzającego, wywołuje Put() z AbstractField, przekazuje informację czy przyznać punkty graczowi}
+    \method[public int]{Put(AbstractField)}{Implementacja odwiedzającego, wywołuje Put() z AbstractField, przekazuje informację czy przyznać punkty graczowi.}
 \end{methods}
 
 \subsubsection{Interface Message SenderService}
 \paragraph{Metody}
 \begin{methods}
-    \method[public void]{SendMessage()}{Wysłanie wiadomości do serwera komunikacyjnego. Używana przez Playera do wysyłania wiadomości}
+    \method[public void]{SendMessage()}{Wysłanie wiadomości do serwera komunikacyjnego. Używana przez Playera do wysyłania wiadomości.}
 \end{methods}
 
 \subsubsection{GM}
 \paragraph{Zmienne}
 \begin{methods}
-    \method[private readonly Dictionary<int,Player>]{players}{Słownik mapujący id gracza z wiadomości na obiekt}
+    \method[private readonly Dictionary<int,Player>]{players}{Słownik mapujący id gracza z wiadomości na obiekt.}
     \method[{private readonly Field[][]}]{map}{Faktyczny stan planszy.}
-    \method[private Set<(int,int)>]{LegalKnowleadgeReplies[2]}{Zbiór par id które oznaczają, dana odpowiedź z wymianą informacjie jest legalna, bo była poprzedzona zapytaniem.}
+    \method[private Set<(int,int)>]{LegalKnowleadgeReplies[2]}{Zbiór par id które oznaczają, że dana odpowiedź z wymianą informacjie jest legalna, bo była poprzedzona zapytaniem.}
     \method[private Configuration]{conf}{Obiekt parametrów rozgrywki.}
 \end{methods}
 

@@ -3,20 +3,20 @@
 \begin{document}
 \section{Diagramy Aktywności}
 \subsection{Połączenie z CS}
-\includeDiagram[width=\textwidth]{resources/AgentToCSConn.eps}{Połączenie Agenta z CS}
-Połączenie Agenta odbywa skutkuje nadaniem przez CS unikalnego id (patrz \hyperref[sec:komunikacja]{Komunikacja}),
+\includeDiagram[width=\textwidth]{resources/AgentToCSConn.eps}{Diagram aktywności połączenia Agenta z CS}
+Połączenie Agenta skutkuje nadaniem przez CS unikalnego id (patrz \hyperref[sec:komunikacja]{Komunikacja}),
 które później wykorzystywane jest w logice rozgrywki.
 
 \begin{landscape}
     \subsection{Połączenie z CS}
-    \includeDiagram[height=0.5\textheight]{resources/DolaczenieDoRozgrywki.eps}{Diagram aktywności dołącznia do rozgrywki}
+    \includeDiagram[height=0.5\textheight]{resources/DolaczenieDoRozgrywki.eps}{Diagram aktywności dołączenia do rozgrywki}
 \end{landscape}
 
 \subsection{Praca serwera komunikacyjnego}
 \includeDiagram[width=0.7\textwidth]{resources/ComServer.eps}{Diagram aktywności CS}
 
 \subsection{Obsługa rozpoczęcia rozgrywki przez GM}
-\includeDiagram[width=0.7\textwidth]{resources/RozpoczecieGM.eps}{Diagram aktyności rozpoczęcia rozgrywki dla GM}
+\includeDiagram[width=0.7\textwidth]{resources/RozpoczecieGM.eps}{Diagram aktywności rozpoczęcia rozgrywki dla GM}
 
 \begin{landscape}
     \subsection{Obsługa rozpoczęcia rozgrywki przez system}
@@ -25,6 +25,6 @@ które później wykorzystywane jest w logice rozgrywki.
 
 \subsection{Obsługa zapytania przez GM}
 \includeDiagram[width=\textwidth]{resources/ObslugaZapytaniaAgenta.eps}{Diagram aktywności obsługi zapytań agenta}
-Każde żądanie Agenta jest walidowane przez GM. Sprawdza czy dana akcja nie łamie reguł, czy Agent odczekał karę czasową. Jeśli nie
+Każde żądanie Agenta jest walidowane przez GM. Sprawdza czy dana akcja nie łamie reguł, czy Agent odczekał karę czasową. Jeśli nie,
 przygotowuje odpowiednią odpowiedź błędu.
 \end{document}

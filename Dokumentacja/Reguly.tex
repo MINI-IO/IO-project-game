@@ -2,7 +2,7 @@
 
 \begin{document}
 \section{Reguły}
-Gracze - Agenci, są podzieleni na dwie drużyny: czerwoną i niebieską. Agenci w obrębie drużyny muszą ze sobą współpracować. Możliwe akcje dla Agentów:
+Gracze - Agenci są podzieleni na dwie drużyny: czerwoną i niebieską. Agenci w obrębie drużyny muszą ze sobą współpracować. Możliwe akcje dla Agentów:
 \begin{itemize}
 	\item ruch po planszy
 	\item odkrycie 8 przyległych pól
@@ -18,7 +18,7 @@ Plansza podzielona jest na 3 rozłączne obszary, kolejno: pole bramkowe drużyn
 
 \textbf{Celem każdej drużyny jest skompletowanie projektu, czyli zakrycie odpowiednich pól zebranymi fragmentami. Wygrywa drużyna, która jako pierwsza zakryje wszystkie swoje pola celów.}
 
-Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny. Pola projektu są ukryte, Agenci w trakcie rozgrywki mogą je odkryć poprzez akcję sprawdzenia wybranego pola lub położenie na niego fragmentu.
+Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny. Pola projektu początkowo są ukryte. Agenci w trakcie rozgrywki mogą je odkryć poprzez akcję sprawdzenia wybranego pola lub położenie na niego fragmentu.
 
 \includeDiagram[width=0.5\textwidth]{resources/game.png}{Mapa planszy}
 \subsection{Założenia ogólne}
@@ -33,7 +33,7 @@ Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny.
     \item Odległości liczone są w metryce Manhattan
     \item Każda akcja powoduje założenie na agenta blokady, na czas zależny od akcji i określony przed rozgrywką, podczas której nie może wykonywać akcji
     \item W każdej drużynie jest jeden lider
-    \item Projekt do ułożenia są dla każdej drużyny identyczne
+    \item Projekty do ułożenia są dla każdej drużyny identyczne
     \item Warunkiem wygranej jest zakrycie wszystkich celów, czyli zdobycie tylu punktów ile jest celów
     \item Akcje agentów wykonywane są asynchronicznie
 \end{itemize}
@@ -50,25 +50,25 @@ Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny.
     \item Agent może przebywać na dowolnym polu planszy niezajętym przez innego Agenta
     \item Próba ruchu poza planszę skutkuje brakiem ruchu
     \item Próba poruszenia się na pole zajęte przez innego agenta skutkuje brakiem ruchu
-    \item Próba poruszenia się dwóch różnych agentów na te samo pole skutkuje poruszeniem jednego z nich, wybór agenta do poruszenia jest dowolny
-    \item Agent wchodzący do pola otrzymuje odległość tego pola od najbliższego kawałka.
+    \item Próba poruszenia się dwóch różnych agentów na te samo pole skutkuje poruszeniem się jednego z nich, wybór agenta do poruszenia jest dowolny
+    \item Agent wchodzący do pola otrzymuje odległość tego pola od najbliższego kawałka
 \end{itemize}
 \subsection{Fragmenty}
 \begin{itemize}
-    \item Na Każdym polu planszy, które nie jest polem bramkowym może znajdować się dowolna ilość fragmentów
+    \item Na każdym polu planszy, które nie jest polem bramkowym, może znajdować się dowolna ilość fragmentów
 	\item Agent może podnieść fragment jedynie z pola na którym on sam się znajduje
     \item Agent może trzymać maksymalnie jeden fragment
     \item W każdym momencie w grze może znajdować się maksymalnie liczba fragmentów, która ustalana jest przed rozpoczęciem rozgrywki w konfiguracji
-    \item Fragmenty generowane są przez Game Mastera co określony interwał czasowy i odkładane na losowe pole planszy
+    \item Fragmenty generowane są przez Game Mastera co określony interwał czasowy i odkładane na losowe pole zadań
 	\item Fragmenty mogą być fikcyjne
-    \item Odłożenie wygenerowanego przez Game Mastera fragmentu na pole na którym znajduje się Agent skutkuje natychmiastowym podniesieniem fragmentu przez tego Agenta, jeśli nie trzyma on już innego fragmentu, w przeciwnym przypadku fragment odkładany jest na pole
+    \item Odłożenie wygenerowanego przez Game Mastera fragmentu na pole na którym znajduje się Agent, skutkuje natychmiastowym podniesieniem fragmentu przez tego Agenta, jeśli nie trzyma on już innego fragmentu. W przeciwnym przypadku fragment odkładany jest na pole
     \item Odłożenie fragmentu niefikcyjnego na polu bramkowym które jest celem skutkuje przyznaniem punktu drużynie do której należy dane pole bramkowe. Może nastąpić sytuacja, gdy Agent zdobywa punkt dla przeciwnej drużyny
-    \item Odłożenie fragmentu niefikcyjnego na polu bramkowym które nie jest celem zwraca informację agentowi, że cel nie został osiągnięty.
+    \item Odłożenie fragmentu niefikcyjnego na polu bramkowym które nie jest celem zwraca informację agentowi, że cel nie został osiągnięty
 	\item Odłożenie fragmentu fikcyjnego na polu bramkowym zwraca informację agentowi, że dany fragment był fikcyjny oraz nie przyznaje punktów, nawet jeśli dane pole było celem
     \item Cel na który został odłożony fragment niefikcyjny przestaje być celem, czyli kolejne odłożenie na nim fragmentu nie przyznaje punktów
     \item Odłożenie fragmentu na polu bramkowym skutkuje wyłączeniem tego fragmentu z gry, nie można go już podnieść
     \item Fragment trzymany przez gracza w każdym momencie może być przetestowany na bycie fikcyjnym
-    \item Przetestowany na fikcyjność fragment którego wynik jest pozytywny jest natychmiast niszczony
+    \item Przetestowany na fikcyjność fragment którego wynik jest pozytywny, jest natychmiast niszczony
     \item Fragment trzymany przez gracza w każdym momencie może być zniszczony
 \end{itemize}
 \subsection{Akcja odkrycia}

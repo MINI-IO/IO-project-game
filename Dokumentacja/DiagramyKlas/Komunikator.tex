@@ -13,8 +13,8 @@
 \end{methods}
 \paragraph{Metody}
 \begin{methods}
-    \method{SendMessageToAgent(GMMessage)}{Metoda wysyłająca odpowiednią wiadomość wiadomość do Agenta. Na podstawie id z wiadomości znajduje odpowiedni deskryptor i wysyła na niego payload za pomocą ISender. Wywoływana przez API do komunikacji na zdarzenie otrzymania wiadomości od Agenta}
-    \method{SendMessageToGM(AgentMessage)}{Metoda wysyłająca odpowiednią wiadomość wiadomość do Game Mastera. Wywoływana przez API do komunikacji na zdarzenie otrzymania wiadomości od GM}
+    \method{SendMessageToAgent(GMMessage)}{Metoda wysyłająca odpowiednią wiadomość do Agenta. Na podstawie id z wiadomości znajduje odpowiedni deskryptor i wysyła na niego payload za pomocą ISender. Wywoływana przez API do komunikacji na zdarzenie otrzymania wiadomości od Agenta}
+    \method{SendMessageToGM(AgentMessage)}{Metoda wysyłająca odpowiednią wiadomość do Game Mastera. Wywoływana przez API do komunikacji na zdarzenie otrzymania wiadomości od GM}
 \end{methods}
 
 \subsubsection{Klasa GMMessage}
@@ -30,7 +30,7 @@
 
 \subsubsection{Interfejs ISender}
 \begin{methods}
-    \method[public void]{SendMessage()}{Metoda odpowiedzialna za wysłanie za pomocą API do komunikacji wiadomości do odpowiedniego Agenta lub GM w zależności od paramterów wywołania }
+    \method[public void]{SendMessage()}{Metoda odpowiedzialna za wysłanie za pomocą API do komunikacji wiadomości do odpowiedniego Agenta lub GM, w zależności od paramterów wywołania }
 \end{methods}
 
 \end{document}

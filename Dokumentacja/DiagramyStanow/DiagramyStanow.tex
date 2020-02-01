@@ -8,11 +8,11 @@
 \includeDiagramFullPage[width=\textwidth]{resources/AgentStates.pdf}{Diagram stanów Agenta}
 \subsection{Kawałek}
 Stan kawałka może zmieniać jedynie Agent akcjami przez niego wykonywalnymi. Kawałki są usuwane (\textit{jako obiekty}) tylko na
-zakończenie rozgrywki oraz na akcję zniszczenia. Odłożony kawałek nie zawsze może zostać podniesiony, o tym czy dany kawałek może
+zakończenie rozgrywki oraz na akcję zniszczenia. Odłożony kawałek nie zawsze może zostać podniesiony. O tym czy dany kawałek może
 zostać podniesiony decyduje typ pola na który został odłożony.
 \includeDiagram[width=\textwidth]{resources/Piece.pdf}{Diagram stanów kawałka}
 \subsection{Pole bramkowe}
-Pole bramkowe rozpoczyna jako puste. Zgodnie z regułami raz odłożony fragment na pole bramkowe nie może zostać już podniesiony, zatem
-po położeniu na pole bramkowe fragmentu te już nigdy nie przejdzie do stanu pustego. GM nie może wygenerować fragmentu na polu bramkowym
-\includeDiagramFullPage[width=\textwidth]{resources/Goal.pdf}{Diagram stanów pola w polu bramkwym}
+Pole bramkowe rozpoczyna jako puste. Zgodnie z regułami raz odłożony fragment na pole bramkowe nie może zostać już podniesiony. Zatem
+po położeniu na pole bramkowe fragmentu, już nigdy nie przejdzie ono do stanu pustego. GM nie może wygenerować fragmentu na polu bramkowym.
+\includeDiagramFullPage[width=\textwidth]{resources/Goal.pdf}{Diagram stanów pola w polu bramkowym}
 \end{document}
