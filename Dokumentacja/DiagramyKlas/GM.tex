@@ -8,7 +8,7 @@
 \paragraph{Zmienne}
 \begin{methods}
     \method[private Int]{id}{Identyfikator gracza}
-    \method[private Int]{messageCorellationId}{Id nadane graczowi przez serwer komunikacyjny, służy do odsyłania wiadomości}
+    \method[private Int]{messageCorrelationId}{Id nadane graczowi przez serwer komunikacyjny, służy do odsyłania wiadomości}
     \method[private Team]{team}{Drużyna,w której jest gracz}
     \method[private Boolean]{isLeader}{Zmienna informująca czy gracz jest liderem zespołu}
     \method[private Piece]{holding}{Zmienna informująca czy niesie fragment}
@@ -106,7 +106,7 @@ Klasa reprezentująca pole zadań.
     \method[public int]{Put(AbstractField)}{Implementacja odwiedzającego, wywołuje Put() z AbstractField, przekazuje informację czy przyznać punkty graczowi.}
 \end{methods}
 
-\subsubsection{Interface Message SenderService}
+\subsubsection{Interface MessageSenderService}
 \paragraph{Metody}
 \begin{methods}
     \method[public void]{SendMessage()}{Wysłanie wiadomości do serwera komunikacyjnego. Używana przez Playera do wysyłania wiadomości.}
@@ -117,7 +117,7 @@ Klasa reprezentująca pole zadań.
 \begin{methods}
     \method[private readonly Dictionary<int,Player>]{players}{Słownik mapujący id gracza z wiadomości na obiekt.}
     \method[{private readonly Field[][]}]{map}{Faktyczny stan planszy.}
-    \method[private Set<(int,int)>]{LegalKnowleadgeReplies[2]}{Zbiór par id które oznaczają, że dana odpowiedź z wymianą informacjie jest legalna, bo była poprzedzona zapytaniem.}
+    \method[private Set<(int,int)>]{LegalKnowledgeReplies[2]}{Zbiór par id które oznaczają, że dana odpowiedź z wymianą informacji jest legalna, bo była poprzedzona zapytaniem.}
     \method[private Configuration]{conf}{Obiekt parametrów rozgrywki.}
 \end{methods}
 
@@ -126,8 +126,8 @@ Klasa reprezentująca pole zadań.
     \method[public void]{AcceptMessage()}{Metoda służy do obsługi wiadomości, powinna być wywoływana przez API obsługujące komunikację}
     \method[private]{Discover(Field)}{Metoda oblicza wynik akcji discovery}
     \method[private void]{GeneratePiece()}{Metoda generuje i rozmieszcza fragmenty na planszy.}
-    \method[private void]{ForwardKnowleadgeQuestion()}{Metoda przekazuje prośbę o informację do właściwego gracza.}
-    \method[private void]{ForwardKnowleadgeReply()}{Metoda przekazuje odpowiedź na zapytanie do właściwego gracza, jeśli odpowiedź jest legalna, czyli jeśli dana odpowiedź była poprzedzona zapytaniem.}
+    \method[private void]{ForwardKnowledgeQuestion()}{Metoda przekazuje prośbę o informację do właściwego gracza.}
+    \method[private void]{ForwardKnowledgeReply()}{Metoda przekazuje odpowiedź na zapytanie do właściwego gracza, jeśli odpowiedź jest legalna, czyli jeśli dana odpowiedź była poprzedzona zapytaniem.}
 \end{methods}
 
 \subsubsection{Enum Team}
