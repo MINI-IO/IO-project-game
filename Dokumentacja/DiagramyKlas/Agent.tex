@@ -11,7 +11,7 @@
     \method[public bool]{havePiece}{Zmienna informująca czy gracz jest w posiadaniu piece'a.}
     \method[{public Field[,]}]{board}{Tablica dwuwymiarowa przechowująca planszę z perspektywy gracza.}
     \method[{public Tuple<int,int>}]{position}{Współrzędne pola na planszy, na którym stoi gracz.}
-    \method[{public List<Tuple<int,bool>>}]{waitingPlayers}{Lista id oraz informacji czy są oni liderami drużyny graczy oczekujących na odpowiedź.}
+    \method[{public List<int>}]{waitingPlayers}{Lista id graczy oczekujących na odpowiedź.}
     \method[{public int[]}]{teamMates}{Lista identyfikatorów graczy z naszej drużyny.}
     \method[private IStrategy]{strategy}{Obiekt odpowiedzialny za używaną strategię.}
 \end{methods}
@@ -25,7 +25,7 @@
     \method{Put()}{Metoda odkładająca fragment na planszę. Wysyła zapytanie do GM i w zależności od odpowiedzi aktualizuje stan wiedzy agenta.}
     \method{BegForInfo()}{Metoda wysyłająca do GM prośbę o wymianę informacji przez innego wybranego agenta}
     \method{GiveInfo()}{Metoda udzielająca informacji o rozgrywce wskazanemu graczowi.}
-    \method{RequestResponse()}{Metoda wywoływana na przyjście wiadomości z prośbą o wymianę informacji. Zapamiętuje parametry gracza który poprosił informację do listy \textit{waitingPlayers}}
+    \method{RequestResponse()}{Metoda wywoływana na przyjście wiadomości z prośbą o wymianę informacji. Zapamiętuje parametry gracza który poprosił informację do listy \textit{waitingPlayers}. W przypadku gdy ten gracz był liderem wywołuje metodę \textit{GiveInfo()}}
     \method{CheckPiece()}{Metoda sprawdzająca czy fragment to fragment fikcyjny. Wysyła zapytanie do GM i w zależności od odpowiedzi aktualizuje stan wiedzy agenta.}
     \method[public void]{AcceptMessage()}{Metoda pobierająca informacje od serwera komunikacyjnego.}
     \method{MakeDecisionFromStrategy()}{Metoda, która wywołuje metodę z obiektu strategy. Wywoływana jest okresowo i to ona decuduje o akcjach wykonywanych przez agenta. Używa IStrategy.}
