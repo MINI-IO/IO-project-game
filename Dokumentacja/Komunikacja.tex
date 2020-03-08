@@ -4,16 +4,22 @@
 \section{Komunikacja}
 \label{sec:komunikacja}
 
-Komunikacja odbywa się za pośrednictwem protokołu TCP. Utrata połączenia z którymkolwiek modułem skutkuje w każdym z modułów
+Komunikacja odbywa się za pośrednictwem protokołu TCP. Pierwsze 2 bajty zapisane w kolejności \texttt{little endian}
+Oznaczają liczbę bajtów wiadomości do odczytania (wyłączając pierwsze dwa bajty).
+Wiadomości nie powinny przekraczać długości 8 KiB. Wiadomości kodowane są w UTF-8.
+Utrata połączenia z którymkolwiek modułem skutkuje w każdym z modułów
 poinformowaniem użytkownika i zakończeniem działania. Wiadomości wysyłane są w formacie JSON.
 Wiadomości wysyłane przez GM i Agentów opakowywane są w adapter opisujący kontekst wysyłanej wiadomości.
-Pole \textit{agentID} uzupełniane jest przez serwer na podstawie. Po nawiązaniu połączenia przez Agenta z serwerem,
+Pole \textit{agentID} uzupełniane jest przez serwer na podstawie jego własnego mapowania
+klientów na identyfikatory. Po nawiązaniu połączenia przez Agenta z serwerem,
 serwer nadaje mu unikane \textit{agentID} (liczbę całkowitą), które będzie służyło do korelacji oraz będzie
-wykorzystywane przez GM w logice gry. Te samo \textit{agentID} wysyłane jest do Agenta w odpowiedzi na prośbę o dołączenie
-oraz w wiadomości o rozpoczęciu rozgrywki.
+wykorzystywane przez GM w logice gry.
+\textit{agentID} może być unikalną losowa wartością lub kolejną wartością predefiniowanego ciągu
+unikalnych wartości. To samo \textit{agentID}
+wysyłane jest do Agenta w odpowiedzi na prośbę o dołączenie
+oraz w wiadomości o rozpoczęciu rozgrywki. Ponowne połączenia po utracie komunikacji nie są możliwe.
 
 \lstinputlisting[language=json]{./DefinicjeWiadomosci/messageWrapper.json}
-
 \subsection{Wiadomości Agenta}
 \subsubsection{Zapytanie czy trzymany fragment jest fikcyjny}
 \textit{Payload} pusty
