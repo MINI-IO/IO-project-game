@@ -6,14 +6,6 @@
         "messageID": {
             "type":"integer"
         },
-        "timeSent": {
-            "type":"string",
-            "format":"date-time"
-        },
-        "waitUntil": {
-            "type":"string",
-            "format":"date-time"
-        },
         "agentID": {
             "type":"integer"
         },
