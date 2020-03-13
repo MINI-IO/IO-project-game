@@ -1,0 +1,12 @@
+\documentclass[Dokumentacja.tex]{subfiles}
+
+\begin{document}
+\section{Mierzenie czasów}
+Czasy liczone są indywidualnie przez każdy moduł,
+synchronizacja czasów nie jest prowadzona.
+Czasy kar podane w konfiguracji są przez GM zaokrąglane do 10ms i taka powinna być dokładność
+zegarów wszystkich modułów.
+Agenty powinny same być w stanie obliczyć, kiedy mogą wykonać
+kolejną akcję na podstawie długości kar i czasów wysłania/odebrania wiadomości.
+GM na podstawie własnego zegara decyduje czy agent odczekał karę.
+\end{document}
