@@ -24,7 +24,7 @@ class Player {
 + hasPiece: bool
 + board Field[,]
 + position: Tuple<int, int>
-+ waitingPlayers: List<Tuple<int, bool>>
++ waitingPlayers: List<int>
 - strategy: IStrategy
 + teamMates: int[]
 
