@@ -21,7 +21,7 @@ class Player {
 + penaltyTime: int
 + team: Team
 + isLeader: bool
-+ havePiece: bool
++ hasPiece: bool
 + board Field[,]
 + position: Tuple<int, int>
 + waitingPlayers: List<Tuple<int, bool>>
