@@ -8,7 +8,7 @@
     \method[public int]{penaltyTime}{Czas kary.}
     \method[public Team]{team}{Enum drużyny, w której jest gracz.}
     \method[public bool]{isLeader}{Zmienna informująca czy gracz jest liderem zespołu.}
-    \method[public bool]{havePiece}{Zmienna informująca czy gracz jest w posiadaniu piece'a.}
+    \method[public bool]{hasPiece}{Zmienna informująca czy gracz jest w posiadaniu piece'a.}
     \method[{public Field[,]}]{board}{Tablica dwuwymiarowa przechowująca planszę z perspektywy gracza.}
     \method[{public Tuple<int,int>}]{position}{Współrzędne pola na planszy, na którym stoi gracz.}
     \method[{public List<int>}]{waitingPlayers}{Lista id graczy oczekujących na odpowiedź.}
@@ -28,7 +28,7 @@
     \method{RequestResponse()}{Metoda wywoływana na przyjście wiadomości z prośbą o wymianę informacji. Zapamiętuje parametry gracza który poprosił informację do listy \textit{waitingPlayers}. W przypadku gdy ten gracz był liderem wywołuje metodę \textit{GiveInfo()}}
     \method{CheckPiece()}{Metoda sprawdzająca czy fragment to fragment fikcyjny. Wysyła zapytanie do GM i w zależności od odpowiedzi aktualizuje stan wiedzy agenta.}
     \method[public void]{AcceptMessage()}{Metoda pobierająca informacje od serwera komunikacyjnego.}
-    \method{MakeDecisionFromStrategy()}{Metoda, która wywołuje metodę z obiektu strategy. Wywoływana jest okresowo i to ona decuduje o akcjach wykonywanych przez agenta. Używa IStrategy.}
+    \method{MakeDecisionFromStrategy()}{Metoda, która wywołuje metodę z obiektu strategy. Wywoływana jest okresowo i to ona decyduje o akcjach wykonywanych przez agenta. Używa IStrategy.}
     \method[private void]{Communicate()}{Metoda wysyłająca wiadomości do serwera komunikacyjnego. Używana przez metody wykonujące akcje do komunikacj z GM poprzez wysłanie wiadomości do Serwera Komunikacyjnego}
     \method[private void]{Penalty()}{Metoda czekająca przez okres kary. Po odczekaniu kary wywołuje generowanie kolejnej akcji.}
 \end{methods}
