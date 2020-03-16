@@ -51,7 +51,7 @@ Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny.
     \item Próba ruchu poza planszę skutkuje brakiem ruchu
     \item Próba poruszenia się na pole zajęte przez innego agenta skutkuje brakiem ruchu
     \item Próba poruszenia się dwóch różnych agentów na te samo pole skutkuje poruszeniem się jednego z nich, wybór agenta do poruszenia jest dowolny
-    \item Agent wchodzący do pola otrzymuje odległość tego pola od najbliższego kawałka
+    \item Agent wchodzący do pola otrzymuje odległość tego pola od najbliższego kawałka który może podnieść
 \end{itemize}
 \subsection{Fragmenty}
 \begin{itemize}
@@ -79,8 +79,8 @@ Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny.
 \subsection{Wymiana informacji}
 \begin{itemize}
     \item W każdym momencie gry agent może zarządzać wymiany informacji z innym agentem
-    \item Odpowiedź na zapytanie agenta niebędącego liderem nie jest obligatoryjna
-    \item Odpowiedź na zapytanie agenta będącego liderem jest obligatoryjna i skutkuje zablokowaniem akcji pytanego agenta do udzielenia przez niego odpowiedzi
+    \item Odpowiedź na zapytanie agenta niebędącego liderem drużyny pytanego agenta nie jest obligatoryjna
+    \item Odpowiedź na zapytanie agenta będącego liderem drużyny pytanego agenta jest obligatoryjna i skutkuje zablokowaniem akcji pytanego agenta do udzielenia przez niego odpowiedzi
     \item Odpowiedź na zapytanie może zostać udzielona w dowolnym czasie od zapytania o wymianę informacji, ale nie może zostać wysłana jeśli takie zapytanie nie miało wcześniej miejsca
     \item Udzielane informacje nie muszą być prawdziwe
 \end{itemize}

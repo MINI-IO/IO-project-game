@@ -68,11 +68,11 @@ class GM
 ~ EndGame()
 - players: Dictionary<int,Player> {readOnly}
 - map: Field[][] {readOnly}
-- LegalKnowleadgeReplies: Int[2] {unique}
+- LegalKnowledgeReplies: Int[2] {unique}
 - conf: Configuration
 - GeneratePiece()
-- ForwardKnowleadgeQuestion()
-- ForwardKnowleadgeReply()
+- ForwardKnowledgeQuestion()
+- ForwardKnowledgeReply()
 ~ RedTeamPoints: int
 ~ BlueTeamPoints: int
 }
@@ -99,7 +99,7 @@ class Player
 ~ SetHolding(Piece)
 ~ GetPosition(): Int[2]
 - id: Int
-- messageCorellationId: Int
+- messageCorrelationId: Int
 - team: Team
 - isLeader: Boolean
 - holding: Piece
