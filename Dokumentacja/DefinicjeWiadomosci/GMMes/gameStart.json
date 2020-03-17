@@ -55,7 +55,7 @@
             "required":["move","checkForSham","discovery","destroyPiece","putPiece","informationExchange"],
             "properties": {
                 "move": {"type":"string"},
-                "checkForScham": {"type":"string"},
+                "checkForSham": {"type":"string"},
                 "discovery": {"type":"string"},
                 "destroyPiece": {"type":"string"},
                 "putPiece": {"type":"string"},
