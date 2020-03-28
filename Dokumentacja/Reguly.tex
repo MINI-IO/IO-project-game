@@ -58,8 +58,8 @@ Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny.
     \item Na każdym polu planszy, które nie jest polem bramkowym, może znajdować się dowolna ilość fragmentów
 	\item Agent może podnieść fragment jedynie z pola na którym on sam się znajduje
     \item Agent może trzymać maksymalnie jeden fragment
-    \item W każdym momencie w grze może znajdować się maksymalnie liczba fragmentów, która ustalana jest przed rozpoczęciem rozgrywki w konfiguracji
-    \item Fragmenty generowane są przez Game Mastera co określony interwał czasowy i odkładane na losowe pole zadań
+    \item Na początku rozgrywki generowana jest określona liczba fragmentów, która jest skonfigurowana przed rozpoczęciem rozgrywki
+    \item Fragmenty generowane są przez Game Mastera zaraz po wiadomości o odłożeniu lub zniszczeniu kawałka przez Agenta, a następnie umieszczane na losowe pole zadań
 	\item Fragmenty mogą być fikcyjne
     \item Odłożenie wygenerowanego przez Game Mastera fragmentu na pole na którym znajduje się Agent, skutkuje natychmiastowym podniesieniem fragmentu przez tego Agenta, jeśli nie trzyma on już innego fragmentu. W przeciwnym przypadku fragment odkładany jest na pole
     \item Odłożenie fragmentu niefikcyjnego na polu bramkowym które jest celem skutkuje przyznaniem punktu drużynie do której należy dane pole bramkowe. Może nastąpić sytuacja, gdy Agent zdobywa punkt dla przeciwnej drużyny
