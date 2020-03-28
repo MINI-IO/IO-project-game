@@ -26,7 +26,7 @@
     \method[public void]{Discover(GM)}{Metoda wykonująca akcję odkrycia. Wykorzystuje funkcję klasy GM. Wysyła agentowi informację przez MessageSenderService.}
     \method[public bool]{Put()}{Metoda odkładająca fragment w polu, w którym się znajdujemy. Korzysta z metody obiektu postion. Wysyła agentowi informację przez MessageSenderService. Zwraca true jeśli drużynie należy przyznać punkt.}
     \method{SetHolding()}{Metoda przypisuje graczowi fragment.}
-    \method[{internal int[2]}]{GetPosition()}{Metoda pobiera współrzędne gracza.}
+    \method[{internal int[2]}]{GetPosition()}{Metoda pobiera współrzędne gracza, gdzie arr[0] ~ y, arr[1] ~ x }
 \end{methods}
 
 
@@ -47,8 +47,8 @@
 \subsubsection{AbstractField}
 \paragraph{Zmienne}
 \begin{methods}
-    \method[private readonly Int]{x}{Współrzędna x pola na planszy.}
-    \method[private readonly Int]{y}{Współrzędna y pola na planszy.}
+    \method[private readonly Int]{x}{Współrzędna x pola na planszy. Oznacza kolumnę.}
+    \method[private readonly Int]{y}{Współrzędna y pola na planszy. Oznacza wiersz.}
     \method[private Player]{WhosHere}{Referencja na obiekt gracza, który znajduje się na polu.}
     \method[private AbstractPiece]{pieces}{Lista fragmentów położonych na tym polu.}
 \end{methods}
