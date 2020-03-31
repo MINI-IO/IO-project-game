@@ -62,7 +62,7 @@ Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny.
     \item Fragmenty generowane są przez Game Mastera zaraz po wiadomości o odłożeniu lub zniszczeniu kawałka przez Agenta, a następnie umieszczane na losowe pole zadań
 	\item Fragmenty mogą być fikcyjne
     \item Odłożenie wygenerowanego przez Game Mastera fragmentu na pole na którym znajduje się Agent, skutkuje natychmiastowym podniesieniem fragmentu przez tego Agenta, jeśli nie trzyma on już innego fragmentu. W przeciwnym przypadku fragment odkładany jest na pole
-    \item Odłożenie fragmentu niefikcyjnego na polu bramkowym które jest celem skutkuje przyznaniem punktu drużynie do której należy dane pole bramkowe. Może nastąpić sytuacja, gdy Agent zdobywa punkt dla przeciwnej drużyny
+    \item Odłożenie fragmentu niefikcyjnego na polu bramkowym które jest celem skutkuje przyznaniem punktu drużynie do której należy dane pole bramkowe. Natomiast żaden gracz nie może wejść na pole bramkowe drużyny przeciwnej.
     \item Odłożenie fragmentu niefikcyjnego na polu bramkowym które nie jest celem zwraca informację agentowi, że cel nie został osiągnięty
 	\item Odłożenie fragmentu fikcyjnego na polu bramkowym zwraca informację agentowi, że dany fragment był fikcyjny oraz nie przyznaje punktów, nawet jeśli dane pole było celem
     \item Cel na który został odłożony fragment niefikcyjny przestaje być celem, czyli kolejne odłożenie na nim fragmentu nie przyznaje punktów
