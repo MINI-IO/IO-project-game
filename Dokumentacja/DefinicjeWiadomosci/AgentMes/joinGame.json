@@ -1,9 +1,9 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema",
     "type": "object",
-    "required":["teamId"],
+    "required":["teamID"],
     "properties": {
-        "teamId": {
+        "teamID": {
             "type":"string",
             "enum": ["red","blue"]
         }

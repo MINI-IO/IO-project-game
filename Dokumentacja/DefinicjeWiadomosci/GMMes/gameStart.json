@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema",
     "type": "object",
-    "required":["agentID","alliesIDs","enemiesIDs","teamId","boardSize","goalAreaSize","numberOfPlayers","numberOfPieces","numberOfGoals","penalties","shamPieceProbability","position", "leaderID"],
+    "required":["agentID","alliesIDs","enemiesIDs","teamID","boardSize","goalAreaSize","numberOfPlayers","numberOfPieces","numberOfGoals","penalties","shamPieceProbability","position", "leaderID"],
     "properties": {
         "agentID": {
             "type":"integer"
@@ -21,7 +21,7 @@
                 "type": "integer"
             }
         },
-        "teamId": {
+        "teamID": {
             "type":"string",
             "enum": ["red","blue"]
         },
