@@ -12,5 +12,6 @@
     "goalAreaHeight": 5,
     "numberOfGoals": 5,
     "numberOfPieces": 10,
+    "teamSize" : 2,
     "shamPieceProbability": 0.50
 }
