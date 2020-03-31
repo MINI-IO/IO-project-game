@@ -19,6 +19,7 @@
         "goalAreaHight": { "type": "integer" },
         "numberOfGoals": { "type": "integer" },
         "numberOfPieces": { "type": "integer" },
-        "shamPieceProbability": { "type":"number"}
+        "teamSize": { "type": "integer" },
+        "shamPieceProbability": { "type":"number" }
     }
 }
