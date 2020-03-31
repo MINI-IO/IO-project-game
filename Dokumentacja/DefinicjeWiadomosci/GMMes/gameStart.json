@@ -54,12 +54,12 @@
             "type":"object",
             "required":["move","checkForSham","discovery","destroyPiece","putPiece","informationExchange"],
             "properties": {
-                "move": {"type":"string"},
-                "checkForScham": {"type":"string"},
-                "discovery": {"type":"string"},
-                "destroyPiece": {"type":"string"},
-                "putPiece": {"type":"string"},
-                "informationExchange": {"type":"string"}
+                "move": {"type":"integer"},
+                "checkForSham": {"type":"integer"},
+                "discovery": {"type":"integer"},
+                "destroyPiece": {"type":"integer"},
+                "putPiece": {"type":"integer"},
+                "informationExchange": {"type":"integer"}
             }
         },
         "shamPieceProbability": {
