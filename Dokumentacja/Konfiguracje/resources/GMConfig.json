@@ -7,6 +7,7 @@
     "putPenalty": 500,
     "checkForShamPenalty": 700,
     "responsePenalty": 1000,
+    "destroyPiecePenalty": 500,
     "boardX": 40,
     "boardY": 40,
     "goalAreaHight": 5,
