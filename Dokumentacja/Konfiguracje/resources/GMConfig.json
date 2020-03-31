@@ -2,7 +2,7 @@
     "CsIP": "192.168.0.0",
     "CsPort": 12313,
     "movePenalty": 1500,
-    "askPenalty": 1000,
+    "informationExchangePenalty": 1000,
     "discoveryPenalty": 700,
     "putPenalty": 500,
     "checkForShamPenalty": 700,
