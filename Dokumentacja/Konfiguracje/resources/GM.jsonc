@@ -3,7 +3,7 @@
     "type": "object",
     "required":["CsIP", "CsPort", "movePenalty", "askPenalty",
          "discoveryPenalty", "putPenalty", "checkForShamPenalty",
-         "responsePenalty", "destroyPiecePenalty" "boardX", "boardY", "goalAreaHight",
+         "destroyPiecePenalty" "boardX", "boardY", "goalAreaHight",
          "numberOfGoals", "numberOfPieces", "shamPieceProbability" ],
     "properties": {
         "CsIP": { "type": "string" },
@@ -13,7 +13,6 @@
         "discoveryPenalty": { "type": "integer" },
         "putPenalty": { "type": "integer" },
         "checkForShamPenalty": { "type": "integer" },
-        "responsePenalty": { "type": "integer" },
         "destroyPiecePenalty": { "type": "integer" },
         "boardX": { "type": "integer" },
         "boardY": { "type": "integer" },
