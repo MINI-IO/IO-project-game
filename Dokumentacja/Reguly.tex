@@ -18,7 +18,7 @@ Plansza podzielona jest na 3 rozłączne obszary, kolejno: pole bramkowe drużyn
 
 \textbf{Celem każdej drużyny jest skompletowanie projektu, czyli zakrycie odpowiednich pól zebranymi fragmentami. Wygrywa drużyna, która jako pierwsza zakryje wszystkie swoje pola celów.}
 
-Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny. Pola projektu początkowo są ukryte. Agenci w trakcie rozgrywki mogą je odkryć poprzez akcję sprawdzenia wybranego pola lub położenie na niego fragmentu.
+Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny. Pola projektu początkowo są ukryte. Agenci w trakcie rozgrywki mogą je odkryć tylko przez położenie na nie fragmentu.
 
 \includeDiagram[width=0.5\textwidth]{resources/game.png}{Mapa planszy}
 \subsection{Założenia ogólne}
@@ -57,10 +57,11 @@ Projekty generowane są na początku rozgrywki, identyczne dla każdej drużyny.
     \item Na każdym polu planszy, które nie jest polem bramkowym, może znajdować się dowolna ilość fragmentów
 	\item Agent może podnieść fragment jedynie z pola na którym on sam się znajduje
     \item Agent może trzymać maksymalnie jeden fragment
-    \item W każdym momencie w grze może znajdować się maksymalnie liczba fragmentów, która ustalana jest przed rozpoczęciem rozgrywki w konfiguracji
-    \item Fragmenty generowane są przez Game Mastera co określony interwał czasowy i odkładane na losowe pole zadań
+    \item Na początku rozgrywki generowana jest określona liczba fragmentów, która jest skonfigurowana przed rozpoczęciem rozgrywki
+    \item Fragmenty generowane są przez Game Mastera zaraz po wiadomości o odłożeniu lub zniszczeniu kawałka przez Agenta, a następnie umieszczane na losowe pole zadań
 	\item Fragmenty mogą być fikcyjne
-    \item Odłożenie fragmentu niefikcyjnego na polu bramkowym które jest celem skutkuje przyznaniem punktu drużynie do której należy dane pole bramkowe. Może nastąpić sytuacja, gdy Agent zdobywa punkt dla przeciwnej drużyny
+    \item Odłożenie wygenerowanego przez Game Mastera fragmentu na pole na którym znajduje się Agent, skutkuje natychmiastowym podniesieniem fragmentu przez tego Agenta, jeśli nie trzyma on już innego fragmentu. W przeciwnym przypadku fragment odkładany jest na pole
+    \item Odłożenie fragmentu niefikcyjnego na polu bramkowym które jest celem skutkuje przyznaniem punktu drużynie do której należy dane pole bramkowe. Natomiast żaden gracz nie może wejść na pole bramkowe drużyny przeciwnej.
     \item Odłożenie fragmentu niefikcyjnego na polu bramkowym które nie jest celem zwraca informację agentowi, że cel nie został osiągnięty
 	\item Odłożenie fragmentu fikcyjnego na polu bramkowym zwraca informację agentowi, że dany fragment był fikcyjny oraz nie przyznaje punktów, nawet jeśli dane pole było celem
     \item Cel na który został odłożony fragment niefikcyjny przestaje być celem, czyli kolejne odłożenie na nim fragmentu nie przyznaje punktów

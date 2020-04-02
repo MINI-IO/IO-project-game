@@ -26,7 +26,7 @@
     \method[public void]{Discover(GM)}{Metoda wykonująca akcję odkrycia. Wykorzystuje funkcję klasy GM. Wysyła agentowi informację przez MessageSenderService.}
     \method[public bool]{Put()}{Metoda odkładająca fragment w polu, w którym się znajdujemy. Korzysta z metody obiektu postion. Wysyła agentowi informację przez MessageSenderService. Zwraca true jeśli drużynie należy przyznać punkt.}
     \method{SetHolding()}{Metoda przypisuje graczowi fragment.}
-    \method[{internal int[2]}]{GetPosition()}{Metoda pobiera współrzędne gracza.}
+    \method[{internal int[2]}]{GetPosition()}{Metoda pobiera współrzędne gracza, gdzie arr[0] ~ y, arr[1] ~ x }
 \end{methods}
 
 
@@ -47,8 +47,8 @@
 \subsubsection{AbstractField}
 \paragraph{Zmienne}
 \begin{methods}
-    \method[private readonly Int]{x}{Współrzędna x pola na planszy.}
-    \method[private readonly Int]{y}{Współrzędna y pola na planszy.}
+    \method[private readonly Int]{x}{Współrzędna x pola na planszy. Oznacza kolumnę.}
+    \method[private readonly Int]{y}{Współrzędna y pola na planszy. Oznacza wiersz.}
     \method[private Player]{WhosHere}{Referencja na obiekt gracza, który znajduje się na polu.}
     \method[private AbstractPiece]{pieces}{Lista fragmentów położonych na tym polu.}
 \end{methods}
@@ -61,7 +61,7 @@
     \method[public bool]{PutSham(Piece)}{Metoda abstrakcyjna. Wykorzystywana przez Put(AbstractField) z ShamPiece na zasadzie \textbf{wzorca projektowego odwiedzający}. Zwraca true jeśli dane pole było bramkowe}
     \method[public bool]{MoveHere(Player)}{Metoda przesuwa gracza na pole.}
     \method[public bool]{ContainsPieces()}{Metoda zwraca informację czy pole zawiera fragment.}
-    \method[{public int[2]}]{GetPosition()}{Metoda zwraca współrzędne pola.}
+    \method[{public int[2]}]{GetPosition()}{Metoda zwraca współrzędne pola, gdzie arr[0] ~ y, arr[1] ~ x}
 \end{methods}
 
 \paragraph{NonGoalField : AbstractField}

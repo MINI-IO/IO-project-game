@@ -85,15 +85,18 @@ oraz w wiadomości o rozpoczęciu rozgrywki. Ponowne połączenia po utracie kom
 \subsubsection{Odpowiedź na położenie kawałka}
 \lstinputlisting[language=json]{./DefinicjeWiadomosci/GMMes/putPieceResponse.json}
 
+\subsubsection{Wiadomość przekazująca odpowiedź na zapytanie o wymianę informacji}
+\lstinputlisting[language=json]{./DefinicjeWiadomosci/GMMes/informationExchangeRespondForward.json}
+
 \subsection{Wiadomości błędów}
 
 \subsubsection{Błędny ruch}
 \lstinputlisting[language=json]{./DefinicjeWiadomosci/Errors/invalidMove.json}
 
-\subsubsection{Błędne odłożenie kawałka}
+\subsubsection{Błąd podniesienia kawałka}
 \lstinputlisting[language=json]{./DefinicjeWiadomosci/Errors/pickPiece.json}
 
-\subsubsection{Błędne położenie kawałka}
+\subsubsection{Błąd położenia kawałka}
 \lstinputlisting[language=json]{./DefinicjeWiadomosci/Errors/putPieceError.json}
 
 \subsubsection{Nie odczekanie kary}
@@ -136,6 +139,7 @@ oraz w wiadomości o rozpoczęciu rozgrywki. Ponowne połączenia po utracie kom
  108 & Odpowiedź na zapytanie o ruch \\
  109 & Odpowiedź na podniesienie kawałka \\
  110 & Odpowiedź na położenie kawałka \\
+ 111 & Wiadomość przekazująca odpowiedź na zapytanie o wymianę informacji \\
  \hline
 \end{tabular}
 
