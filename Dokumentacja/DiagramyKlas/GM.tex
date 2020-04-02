@@ -56,7 +56,7 @@
 \paragraph{Metody}
 \begin{methods}
     \method[public void]{Leave(Player)}{Metoda wywoływana gdy gracz opuszcza pole. Usuwa referencję na gracza w obiekcie.}
-    \method[public void]{PickUp(Player)}{Metoda abstrakcyjna, która podnosi fragment z planszy i przypisuje go do gracza. Wywoływana jest na wejście gracza  (przemieszczenie się gracza do tego pola) do danego pola}
+    \method[public void]{PickUp(Player)}{Metoda abstrakcyjna, która podnosi fragment z planszy i przypisuje go do gracza. Wywoływana jest na żądanie PickPiece}
     \method[public bool]{Put(Piece)}{Metoda abstrakcyjna. Wykorzystywana przez Put(AbstractField) z NormalPiece na zasadzie \textbf{wzorca projektowego odwiedzający}.}
     \method[public bool]{PutSham(Piece)}{Metoda abstrakcyjna. Wykorzystywana przez Put(AbstractField) z ShamPiece na zasadzie \textbf{wzorca projektowego odwiedzający}. Zwraca true jeśli dane pole było bramkowe}
     \method[public bool]{MoveHere(Player)}{Metoda przesuwa gracza na pole.}

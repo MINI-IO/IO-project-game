@@ -1,16 +1,17 @@
 {
     "CsIP": "192.168.0.0",
-    "CsPort": 3729,
-    "teamID": 3,
+    "CsPort": 12313,
     "movePenalty": 1500,
-    "askPenalty": 1000,
+    "informationExchangePenalty": 1000,
     "discoveryPenalty": 700,
     "putPenalty": 500,
     "checkForShamPenalty": 700,
-    "responsePenalty": 1000,
+    "destroyPiecePenalty": 500,
     "boardX": 40,
     "boardY": 40,
-    "goalAreaHight": 5,
+    "goalAreaHeight": 5,
     "numberOfGoals": 5,
-    "numberOfPieces": 10
+    "numberOfPieces": 10,
+    "teamSize" : 2,
+    "shamPieceProbability": 0.50
 }
