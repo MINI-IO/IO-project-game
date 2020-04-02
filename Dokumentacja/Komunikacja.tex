@@ -4,8 +4,7 @@
 \section{Komunikacja}
 \label{sec:komunikacja}
 
-Komunikacja odbywa się za pośrednictwem protokołu TCP. Pierwsze 2 bajty zapisane w kolejności \texttt{little endian}
-Oznaczają liczbę bajtów wiadomości do odczytania (wyłączając pierwsze dwa bajty).
+Komunikacja odbywa się za pośrednictwem protokołu TCP oddzielone znakiem nowej linii.
 Wiadomości nie powinny przekraczać długości 8 KiB. Wiadomości kodowane są w UTF-8.
 Utrata połączenia z którymkolwiek modułem skutkuje w każdym z modułów
 poinformowaniem użytkownika i zakończeniem działania. Wiadomości wysyłane są w formacie JSON.
